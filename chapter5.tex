@@ -1,0 +1,123 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{preamble}
+
+\begin{document}
+    \begin{problem}
+        $V(J) \subseteq B$を閉集合として, $f^\ast(V(J)) = V(f^{-1}(J))$を示す.
+        $\mathfrak{p} \in f^{\ast}(V(J))$とすれば, ある$\mathfrak{q} \in V(J)$が存在して,
+        \[
+            f^{\ast}(\mathfrak{q}) = f^{-1}(\mathfrak{q}) = \mathfrak{p}
+        \]
+        となる.
+        今, $J \subseteq \mathfrak{q}$より, $f^{-1}(J) \subseteq f^{-1}(\mathfrak{q}) = \mathfrak{p}$なので,
+        $\mathfrak{p} \in V(f^{-1}(J))$が成り立つ.
+        あとは$V(f^{-1}(J)) \subseteq f^{\ast}(V(J))$を示せばよいが,
+        これは$f^{\ast}$の制限によって$\Spec{B/J} \to \Spec{A/f^{-1}(J)}$が全射であることと同値である.
+
+        まず, $f$がintegralであることと(5.6)より, $\iota: f(A) \to B$を包含射とすれば,
+        $B/J$は$f(A)/\iota^{-1}(J)$上整である.
+        また, $f(A)/\iota^{-1}(J) \subseteq B/J$とみれば, (5.10)より,
+        \[
+            \Spec{B/J} \to \Spec{f(A)/\iota^{-1}(J)}
+        \]
+        は全射である.
+        ここで, $f(A) \cong A/\ker{f}$と$f^{-1}(\iota^{-1}(J)) = f^{-1}(J)$を考えれば,
+        \[
+            f(A)/\iota^{-1}(J) \cong (A/\ker{f})/(f^{-1}(J)/\ker{f}) \cong A/f^{-1}(J)
+        \]
+        となるので,
+        \[
+            \begin{tikzcd}
+                A \arrow[r]\arrow[d] & B  \arrow[d] \\
+                A/f^{-1}(J) \arrow[r] &  B/J
+            \end{tikzcd}
+        \]
+        が可換であることから,
+        \[
+            \begin{tikzcd}
+                \Spec{B/J} \arrow[r]\arrow[d] & \Spec{A/f^{-1}(J)}   \arrow[d] \\
+                \Spec{B} \arrow[r] & \Spec{A}
+            \end{tikzcd}
+        \]
+        も可換であることに注意すれば,
+        $f^{\ast}$の制限によって$\Spec{B/J} \to \Spec{A/f^{-1}(J)}$が全射であることが従う.
+    \end{problem}
+
+    \begin{problem}
+        $\mathfrak{p} = \ker{f}$とする.
+        (5.10)より, ある$\mathfrak{q}$が存在して, $\mathfrak{p} = \mathfrak{q} \cap A$が成り立つ.
+        このとき,
+        \[
+            \begin{tikzcd}
+                A \arrow[r]\arrow[d] & B  \arrow[d] \\
+                A/\mathfrak{p} \arrow[r, "\iota_0"] &  B/\mathfrak{q}
+            \end{tikzcd}
+        \]
+        が可換であり, $\iota_0$が単射なので, $A/\mathfrak{p} \subseteq B/\mathfrak{q}$としてよい.
+        (5.6)より, これは整拡大である.
+        また, $A/\mathfrak{p}, B/\mathfrak{q}$がともに整域であることから,
+        $K(A/\mathfrak{p}) \subseteq K(B/\mathfrak{q})$は代数的拡大になる.
+        さらに, $f(A) \cong A/\ker{f}$であることから, $K(f(A)) \subseteq K(B/\mathfrak{q})$とみれば,
+        $K(f(A)) \subseteq \Omega$でもあるので, $K(B) \subseteq \Omega$とみなせる.
+    \end{problem}
+
+    \begin{problem}
+        $D \subseteq B' \otimes_A C$を$(f\otimes_A 1)(B \otimes C)$上整な元の集合とすれば,
+        (5.3)より, $B'\otimes_A C$の部分環である.
+        また, $B, C$が$A$-代数であることと, $f$が代数準同型であることから,
+        $x \otimes y \in B'\otimes_A C$が$(f\otimes_A 1)(B \otimes C)$
+        上整であることを示せば, 十分である.
+        ここで, $x$は$f(B)$上整なので, $b^n = 1$とすれば, ある$b_i \in B'$が存在して,
+        \[
+            \sum_{i = 0}^n b_ix^i = 0
+        \]
+        となる.
+        このとき,
+        \[
+            \sum_{i = 0}^n (b_i \otimes y^{n-i})(x\otimes y) = \sum_{i=0}^n ((b_ix)\otimes y^n) = \qty(\sum_{i = 0}^n b_ix^i)\otimes y^n = 0
+        \]
+        となるので, $x\otimes y \in B'\otimes_A C$は$B\otimes_A C$上整である.
+    \end{problem}
+
+    \begin{problem}
+        $A = k[x^2-1], B = k[x], \mathfrak{n} = (x-1)B$とする.
+        このとき,
+        \[
+           \mathfrak{m} =  A \cap (x-1)B = (x^2-1)A
+        \]
+        となることに注意する.
+
+        $1/(x+1)$が$A_{\mathfrak{m}}$上整と仮定する.
+        このとき, $a_0 = 1$となるようなある$a_i \in A$と$s_i \in A \setminus \mathfrak{m}$が存在して,
+        \[
+            \sum_{i = 0}^n a_is_i(x-1)^i = 0
+        \]
+        が成り立つ.
+        このとき, $s_0 \in (x-1) \cap A = \mathfrak{m}$となるが, これは矛盾.
+    \end{problem}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item  $x$の$B$における逆元を$y \in B$とする.
+            $B$は$A$上整なので, $a_i \in A$が存在して,
+            \[
+                y^n + \cdots + a_{n-1}y + a_n = 0
+            \]
+            となるが, $n = 1$のときには$y = a_1 \in A$なので, 成り立つ.
+            次に, $n-1$のときには, 主張が成り立つと仮定する.
+            \[
+                -xa_n = y^{n-1} + \cdots + a_{n-1}
+            \]
+            なので, $a_{n-1}$を$-xa_n$でおきなおせば,
+            \[
+                y^{n-1} + \cdots + a_{n_1} = 0
+            \]
+            となる.
+            帰納法の仮定より, $y \in A$が成り立つ.
+            ゆえに, $x$は$A$においても単元.
+            \item (5.10)より, 縮約による全射$\Spec{B} \to \Spec{A}$が存在するが,
+            特に縮約による全射$\Max{B} \to \Max{A}$も存在するので, 共通部分の逆像が逆像の共通部分であることから, 主張が成り立つ.
+        \end{enumerate}
+    \end{problem}   
+\end{document}
