@@ -119,5 +119,198 @@
             \item (5.10)より, 縮約による全射$\Spec{B} \to \Spec{A}$が存在するが,
             特に縮約による全射$\Max{B} \to \Max{A}$も存在するので, 共通部分の逆像が逆像の共通部分であることから, 主張が成り立つ.
         \end{enumerate}
-    \end{problem}   
+    \end{problem}
+
+    \begin{problem}
+        $f_i: A \to B_i$を環の射とし, $f = (f_1, \dots, f_n): A \to \prod_{i = 1}^n B_i$としたとき,
+        $\prod_{i = 1}^n B_i$が$f(A)$上整であることを示す.
+        $b = (b_1, \dots, b_n) \in \prod_{i = 1}^n B_i$とする.
+        $B/f_i(A)$が整拡大なので,
+        任意の$i$に対して, ある$n_i$と$a_{i,j} \in f_i(A)$が存在して,
+        \[
+            b_i^{n_i} + a_{i,1}b_i^{n_i-1} + \cdots a_{i,n_1} = 0
+        \]
+        が成り立つ.
+        ここで, $n = \max_i{n_i}$として,
+        \[
+            b_i^{n} + a_{i,1}b_i^{n-1} + \cdots a_{i,n} = 0
+        \]
+        とみる.
+        ただし, $n_i < k \leq n$に対しては, $a_{i,k} = 0$である.
+        このとき, $a_j = (a_{1,j}, \dots, a_{n,j}) \in f(A)$とすれば,
+        \[
+            b^n+ a_1 b^{n-1} + \cdots + a_n = 0
+        \]
+        となるので, 主著うは成り立つ.
+    \end{problem}
+
+    \begin{problem}
+        $b \in B$が$A$上整のときに, $b \in A$となることを示せばよい.
+        $a_i \in A$として,
+        \[
+            b^n + a_1b^{n-1} + \cdots + a_n = 0
+        \]
+        とおく.
+        $n = 1$のときには$b = -a_1 \in A$なので成り立つ.
+        $n-1$のときに主張が成つと仮定して, $n$の場合を示す.
+        \[
+            b(b^{n-1} + a_1b^{n-2} + \cdots + a_{n-1}) = -a_n \in A
+        \]
+        であり,
+        $B \setminus A$が積閉であるから, $b \notin A$または
+        \[
+            b^{n-1} + a_1b^{n-2} + \cdots + a_{n-1} \in A
+        \]
+        となる.
+        しかし, 後者の場合にも$a_{n-1}$を適当におきかえれば, 帰納法の仮定より, $b \in A$が成り立つので,
+        主張は成立する.
+    \end{problem}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item $B$が整域であることから, $f,g \in B[X] \subseteq \Quot{B}[X]$であり,
+            $fg$の最小分解体$L$が存在する.
+            このとき, 体は特に整域であることから, ある$\alpha_i, \beta_i \in L$が存在して,
+            \[
+                f(x) = (x-\alpha_1)\cdots (x-\alpha_n), \quad \quad g(x) = (x-\beta_1)\cdots (x-\beta_m)
+            \]
+            が$L[X]$において成り立つ.
+            ここで, $fg \in C[X]$より, $\alpha_i, \beta_i$は$C$上整なので, $A$上整である.
+            また, 整元の積と和はまた整元なので, $f, g \in C[X]$が成り立つ.
+            \item 任意の環に対して, それを係数にもつ多項式の根を少なくとも一つむような拡大環は存在するので,
+            これを繰り返すことにより, i)と同様に成り立つ.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{note}
+        $\mathfrak{q} \in \Spec{B}$で$A/A\cap\mathfrak{q} \subseteq B/\mathfrak{q}$とみて～という
+        方針では厳しそう。
+    \end{note}
+
+    \begin{problem}
+        $f \in B[X]$を$A[X]$上整な元としたとき, $f \in C[X]$であることを示せばよい.
+        仮定より, ある$g_i \in A[X]$が存在して,
+        \[
+            f^n + g_1 f^{n-1} + \cdots + g_n = 0
+        \]
+        となる.
+        $r := \max_i(n, \deg{g_i}) + 1$として, $f' = f - x^r$
+        とすれば, $\deg{f} = r$であって,
+        \[
+            (f' + x^r)^n + g_1 (f' + x^r)^{n-1} + \cdots + g_n = 0
+        \]
+        を満たす.
+        これを展開すれば,
+        \[
+            f'^n + h_1f'^{n-1} + \cdots + h_n = 0
+        \]
+        となる.
+        ただし, $h_n$は$\deg{h_n} = rn$をみたすモニック多項式である.
+        このとき, $-f'$はモニックであって,
+        \[
+            -f'(f'^{n-1} + h_1f'^{n-2} + \cdots + h_{n-1}) = h_n
+        \]
+        なので, $f'^{n-1} + h_1f'^{n-2} + \cdots + h_{n-1}$もモニック多項式である.
+        ここで, $h_n \in A[X] \subseteq C[X]$なので, 5.8より,
+        特に$-f' \in C[X]$が成り立つ.
+        したがって, $f \in C[X]$である.
+        以上より, $C[X]$は$A[X]$の$B[X]$における整閉包である.
+    \end{problem}
+
+    \begin{problem}
+        \begin{enumerate}
+            $f$を分解して, $\iota: f(A) \to B$, $g: A \to f(A)$とする.
+            \item \begin{description}
+                \item[(a)$\Rightarrow$(b)]
+                $\mathfrak{p} \in f(A)$と
+                $\mathfrak{q} \in \Spec{B}$を$\mathfrak{q} \cap f(A) = \mathfrak{p}$が成り立つような
+                ものとしたとき, $\iota^\ast|_{V(\mathfrak{q})}: V(\mathfrak{q}) \to V(\mathfrak{p})$が全射であることを示せばよい.
+                $\mathfrak{p}' \in V(\mathfrak{p}) = V(\iota^{\ast}(\mathfrak{q}))$
+                をとる.
+                このとき, $\iota^{\ast}(\mathfrak{q}) \subseteq \mathfrak{p}'$なので,
+                \[
+                    g^\ast\circ \iota^\ast(\mathfrak{q}) = f^\ast(\mathfrak{q}) \subseteq g^\ast(\mathfrak{p}')
+                \]
+                が成り立つ.
+                つまり, $g^\ast(\mathfrak{p'}) \in V(f^\ast(\mathfrak{q}))$である.
+                ここで, $f^\ast$が閉であることから,
+                \[
+                    V(f^\ast(\mathfrak{q})) = f^\ast(V(\mathfrak{q}))
+                \]
+                が成り立つ.
+                これより, ある$\mathfrak{q}' \in V(\mathfrak{q})$が存在して,
+                $f^\ast(\mathfrak{q}') = g^\ast(\mathfrak{p}')$となる.
+                $g$は全射なので,
+                \[
+                    \mathfrak{p}' = g(g^{\ast}(\mathfrak{p}')) = g(f^{\ast}(\mathfrak{q}')) = g(g^{-1}(\iota^\ast(\mathfrak{q}')))= \iota^\ast(\mathfrak{q}')
+                \]
+                となり, $f$は上昇性質をもつ.
+                \item[(b)$\Rightarrow$(c)]
+                \[
+                    \Spec{B/\mathfrak{q}} \to \Spec{f(A)/\iota^{-1}(\mathfrak{q})} \to \Spec{A/f^{-1}(\mathfrak{q})}
+                \]
+                と分解して考える.
+                まず, $\Spec{B/\mathfrak{q}} \to \Spec{f(A)/\iota^{-1}(\mathfrak{q})}$については,
+                $f$の上昇性質からすぐに全射であることが従う.
+                $\Spec{f(A)/\iota^{-1}(\mathfrak{q})} \to \Spec{A/f^{-1}(\mathfrak{q})}$
+                が全射であることを示すには,
+                特に$g^\ast|_{V(\iota^{-1}(\mathfrak{q}))}: V(\iota^{-1}(\mathfrak{q})) \to V(f^{-1}(\mathfrak{q}))$
+                を示せば十分である.
+                ここで, $\mathfrak{p} = \iota^{-1}(\mathfrak{q})$
+                とすれば, $g^\ast|_{V(\mathfrak{p})}: V(\mathfrak{p}) \to V(g^{-1}(\mathfrak{p}))$
+                であり, $f(A) = A/\ker{f}$なので, 剰余環におけるイデアルの対応関係から, $g^\ast|_{V(\iota^{-1}(\mathfrak{q}))}$
+                が全射であることが従う.
+                \item[(c)$\Rightarrow$(b)]
+                $\iota^\ast: V(\mathfrak{q}) \to V(\iota^{-1}(\mathfrak{q}))$が全射であることを示せば十分である.
+                任意の$\mathfrak{p} \in V(\iota^{-1}(\mathfrak{q}))$
+                に対して, $g^\ast(\mathfrak{p}) \in V(f^\ast(\mathfrak{q}))$であり,
+                仮定より, ある$\mathfrak{p}_0 \in V(\mathfrak{q})$が存在して,
+                $f^\ast(\mathfrak{p}_0) = g^\ast(\mathfrak{p})$となる.
+                ここで, $g$が全射であることから,
+                \[
+                    \iota^{\ast}(\mathfrak{p}_0) = g(f^\ast(\mathfrak{p}_0)) = g(g^\ast(\mathfrak{p}))= \mathfrak{p}
+                \]
+                となるので, $\iota^\ast$は全射となる.
+            \end{description}
+            \item \begin{description}
+                \color{red}わかんね\color{black}
+            \end{description}
+        \end{enumerate}
+    \end{problem}
+
+    \begin{problem}
+        5.10と3.18より, すぐに従う.
+    \end{problem}
+
+    \begin{problem}
+        $a \in A$に対して, $f(X) = \prod_{\sigma \in G}(X-\sigma(a))$とすれば, $1 \in G$なので,
+        $f(a) = 0$である.
+        また, $f(X)$の係数は$\{\sigma(a)\}_{\sigma \in G}$の基本対称式で表せるので,
+        $f \in A^G[X]$となるので, $A$は$A^G$上整である.
+
+        次に, $G$の$S^{-1}A$への作用を$\sigma \in G$と$a/s \in S^{-1}A$に対して,
+        $\sigma \cdot (a/s) = \sigma(a)/\sigma(s)$と定める.
+        今, $\sigma(S) \subseteq S$を仮定しているので,
+        この作用はwell-definedである.
+        このとき,
+        \[
+            \phi: (S^{G})^{-1}A^{G} \ni a/s \longrightarrow a/s \in (S^{-1}A)^G
+        \]
+        と定める.
+        $a/s = b/t \in (S^G)^{-1}A^G$とすれば,
+        ある$u \in S^G$が存在して, $u(at-bs) = 0$となるが,
+        このとき, 特に$u \in S^G \subseteq S$なので, $a/s = b/t \in (S^{-1}A)^G$が成り立つ.
+        ゆえに, この写像はwell-definedである.
+        次に$\phi$の逆写像を
+        \[
+            \psi: (S^{-1}A)^G \ni a/s \longrightarrow b/t \in (S^G)^{-1}A^G
+        \]
+        と定めれば, $a/s = b/t \in (S^{-1}A)^G$のとき,
+        ある$u \in S$が存在して, $u(at-bs) = 0$となるが,
+        $u_0 = \prod_{\sigma \in G} \sigma(u) \in S^{G}$について,
+        $u_0(at-bs) = 0$となるので, $a/s = b/t \in (S^{G})^{-1}A^G$が成り立つ.
+        ゆえに, この写像もwell-definedである.
+        $\phi, \psi$は明らかに環の射であって, 互いに逆写像をなすので,
+        $(S^{-1}A)^G \cong (S^G)^{-1}A^G$が成り立つ.
+    \end{problem}
 \end{document}
