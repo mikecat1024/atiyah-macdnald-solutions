@@ -313,4 +313,124 @@
         $\phi, \psi$は明らかに環の射であって, 互いに逆写像をなすので,
         $(S^{-1}A)^G \cong (S^G)^{-1}A^G$が成り立つ.
     \end{problem}
+
+    \begin{problem}
+        $\mathfrak{q}_1, \mathfrak{q}_2 \in P$とする.
+        $x \in \mathfrak{q}_1$について,
+        \[
+            \prod_{\sigma \in G}\sigma(x) \in \mathfrak{q}_1 \cap A^G = \mathfrak{p} \subseteq \mathfrak{q}_2
+        \]
+        となるので,
+        ある$\sigma \in G$が存在して, $\sigma(x) \in \mathfrak{q}_2$が成り立つ.
+        つまり,
+        \[
+            \mathfrak{q}_1 \subseteq \bigcup_{\sigma \in G} \sigma(\mathfrak{q}_2)
+        \]
+        となる.
+        ここで, (1.11)より, ある$\sigma \in G$が存在して,
+        $\mathfrak{q}_1 \subseteq \sigma(\mathfrak{q}_2)$となる.
+        今, $\sigma$が全単射であることと, $\mathfrak{p} \subseteq A^G$であることから,
+        \[
+            \mathfrak{p} = \sigma(\mathfrak{p}) = \sigma(\mathfrak{q}_2 \cap A^G) = \sigma(\mathfrak{q}_2) \cap A^G
+        \]
+        となるので, $\sigma(\mathfrak{q}_2)$の$A^G$への縮約は$\mathfrak{p}$である.
+        これと, $\mathfrak{q}_1 \subseteq \sigma(\mathfrak{q}_2)$より,
+        (5.9)を使えば, $\mathfrak{q}_1 = \sigma(\mathfrak{q}_2)$
+        となる.
+        このとき, $\mathfrak{q}_1, \mathfrak{q}_2 \in P$は任意にとっているので,
+        $G$は$P$状に推移的に作用し,
+        特に$G$は有限集合なので, $P$は有限集合である.
+    \end{problem}
+
+    \begin{problem}
+        $\sigma \in G$を任意にとる.
+        $x \in \sigma(B)$とすれば, ある$x_0 \in B$が存在して, $\sigma(x_0) = x$となる.
+        ここで, $x_0 \in B  = \overline{A}^L$なので,
+        ある$a_i \in A$が存在して,
+        \[
+            x_0^n + a_1 x_0^{n-1} + \cdots + a_n = 0
+        \]
+        となる.
+        ゆえに,
+        \[
+            \sigma(x^n + a_1 x^{n-1} + \cdots + a_n) = 0
+        \]
+        となるが, $\sigma$は特に単射なので,
+        \[
+            x^n + a_1 x^{n-1} + \cdots + a_n = 0
+        \]
+        が成り立つ.
+        これは, $x \in \sigma(B) \subseteq L$が$A$上整であることを意味するので,
+        $x \in B$となる.
+        逆に,
+        $x \in B$とすれば, $\sigma: L \to L$が全単射であることから,
+        ある$x_0 \in L$が存在して, $\sigma(x_0) = x$となる.
+        このとき,
+        \[
+            \sigma(x_0)^n + a_1 \sigma(x_0)^{n-1} + \cdots + a_n = 0
+        \]
+        となるので, $\sigma$の単射性から,
+        \[
+            x^n_0 + a_1 x^{n-1}_0 + \cdots + a_n = 0
+        \]
+        となる.
+        ゆえに, $x_0 \in \overline{A}^L = B$となる.
+        このとき, $x = \sigma(x_0) \in \sigma(B)$となるので, $\sigma(B) = B$が成り立つ.
+
+        次に$A = B^G$であることを示す.
+        $G = \Gal(L/K)$なので, $A \subseteq B^G$はすぐに従う.
+        $x \in B^G \subseteq L^G = K$であって,
+        $x \in B^G \subseteq B$なので, $x$は$A$上整である.
+        また, 特に$x \in K$であって, $A$は整閉なので, $x \in A$が成り立つ.
+        ゆえに, $B^G \subseteq A$となり, $B^G = A$が成り立つ.
+    \end{problem}
+
+    \begin{problem}
+        任意の代数拡大$L/K$について,
+        ある中間体$M$が存在して,
+        $L/M$は純分離拡大, $M/K$は拡大になる.
+        ゆえに, 分離拡大の場合と純非分離拡大の場合について示されれば,
+        $M$における$A$の整閉包を$B$, $L/M$における$B$の整閉包を$C$として,
+        \[
+            \Spec{C} \longrightarrow \Spec{B} \longrightarrow \Spec{A}
+        \]
+        は有限なファイバーをもつ射の合成なので, 有限なファイバーをもつ.
+        したがって, 分離拡大の場合と純非分離拡大の場合について示す.
+
+        \begin{enumerate}
+            \item 分離拡大の場合,
+            \color{red}
+            $L$が$K$上分離的な場合, $L$の正規閉包を$N$とすれば,
+            $N/K$は分離的な有限次正規拡大である.
+            \color{black}
+            $N$における$B$の整閉包を$C$として, $G = \Gal(N/K)$とすれば,
+            5.14より, $A = C^G$が成り立つ.
+            また, 5.13より,
+            \[
+                f^\ast: \Spec{C} \longrightarrow \Spec{C^G} = \Spec{A}
+            \]
+            は有限なファイバーをもつ.
+            ここで, $g^\ast: \Spec{C} \to \Spec{B}$, $h^\ast: \Spec{B} \to \Spec{A}$
+            とする.
+            $B/A$は整拡大であって, $B \subseteq C$なので, 整拡大の推移性から,
+            $C/B$は整拡大である.
+            ゆえに,
+            (5.10)より, $g^\ast$は全射であり,
+            任意の$\mathfrak{p} \in \Spec{A}$について,
+            \[
+                {f^{\ast}}^{-1}(\mathfrak{p}) = (h^\ast \circ g^\ast)^{-1}(\mathfrak{p}) = {g^\ast}^{-1}({h^\ast}^{-1}(\mathfrak{p}))
+            \]
+            が成り立つ.
+            また, $g^\ast$は全射なので, $g^\ast({f^\ast}^{-1}(\mathfrak{p})) = h^\ast(\mathfrak{p})$
+            であり, ${f^\ast}^{-1}(\mathfrak{p})$は有限なので, ${h^\ast}^{-1}(\mathfrak{p})$
+            も有限である.
+            \item
+            \color{red}
+            わかんね。
+            \color{black}
+        \end{enumerate}
+
+
+
+    \end{problem}
 \end{document}
