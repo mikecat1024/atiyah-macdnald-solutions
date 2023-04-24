@@ -429,8 +429,126 @@
             わかんね。
             \color{black}
         \end{enumerate}
+    \end{problem}
 
+    \begin{lemma}\label{lem: 無限体係数の多項式の零元}
+        $k$が無限体のとき, $f \in k[X_1, \dots, X_n]$について,　任意の$a \in k^n$について, $f(a) = 0$であることと, $f = 0$は同値.
+    \end{lemma}
+    \begin{proof}
+        $f = 0$なら任意の$a \in k^n$について, $f(a) = 0$であることは自明なので, 逆を示す.
 
+        $n = 1$のとき, 任意の$a \in k$に対して, $f(a) = 0$である.
+        このとき, $k$が無限体であることから, $f$は無限個の根をもつことになる.
+        しかし, $\deg{f} > 0$なら$f$は高々$\deg{f}$個の根しかもたないことから,
+        $\deg{f} = 0$となり, $f = 0$が従う.
 
+        次に, $n-1$以下で主張が成り立つとし,
+        \[
+            f(X_1, \dots, X_n) = \sum_{i = 0}^m f_i(X_1, \dots, X_{n-1})X_n^{i-1}
+        \]
+        とおく.
+        $a_1, \dots, a_{n-1} \in k$を任意にとり,
+        \[
+            g(X_n) := f(a_1, \dots, a_{n-1}, X_n)
+        \]
+        とすれば, $g \in k[X_n]$である.
+        しかし, 任意の$a_n \in k$について, $g(a_n) = 0$となるので,
+        仮定より$g = 0$である.
+        ゆえに, 任意の$i$について, $f_i(a_1, \dots, a_{n-1}) = 0$となる.
+        これは任意の$a_i \in k$について成り立つので, 仮定より$f_i = 0 \in k[X_1, \dots, X_{n-1}]$.
+        したがって, $f = 0 \in k[X_1, \dots, X_n]$が成り立つ.
+    \end{proof}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item $k$が無限体の場合,
+            $x_1, \dots, x_n \in A$を$k$代数として$A$を生成する元とする.
+            必要なら添え字をとりなおすことにより,
+            $\set{x_1, \dots, x_r}$が$k$上代数独立であり, $x_{r+1}, \dots, x_n \in k[x_1, \dots, x_r]$上代数的としてよい.
+            $n-1$以下で主張が成り立つと仮定して, $n$の場合に証明する.
+
+            $n = r$のときには, $y_i = x_i$とすることにより, 主張は明らかに成り立つので,
+            $r < n$としてよい.
+            このとき, $x_n$が$k[x_1, \dots, x_{n-1}]$上代数的なので,
+            ある$f \in k[X_1, \dots, X_n] \setminus \set{0}$が存在して,
+            $f(x_1, \dots, x_n) = 0$となる.
+            \[
+                f(X) = \sum_{k = 0}^m f_i(X)
+            \]
+            とおく.
+            ただし, $f_i$は$i$次の斉次多項式であって,
+            $f_m(X) \neq 0$を満たす.
+            \cref{lem: 無限体係数の多項式の零元}より, ある$\lambda = (\lambda_1, \dots, \lambda_{n-1}, 1) \in k^n$が存在して,
+            $f_m(\lambda) \neq 0$が成り立つ.
+            実際,
+            \[
+                f_m(X) = \sum_{i = 0}^m g_{i}(X_1, \dots, X_{n-1})X_n^m
+            \]
+            とおけば,
+            \[
+                g(X_1, \dots, X_{n-1}) := f_m(X_1, \dots, X_{n-1}, 1) = \sum_{i = 0}^l g_i(X_1, \dots, X_{n-1})
+            \]
+            が成り立つ.
+            ここで, $g = 0$とおく.
+            このとき, $g_i$は次数$m-i$の斉次多項式なので, $g = 0$より, $g_i = 0$となり,
+            $f_m \neq 0$に反する.
+            したがって, $g \neq 0 \in k[X_1, \dots, X_{n-1}]$であり,
+            \cref{lem: 無限体係数の多項式の零元}を使えば, ある$\lambda_1, \dots, \lambda_{n-1} \in k$が存在して,
+            \[
+                f_m(\lambda_1, \dots, \lambda_{n-1}, 1) = g(\lambda_1, \dots, \lambda_{n-1}) \neq 0
+            \]
+            が成り立つ.
+
+            $1 \leq i \leq n-1$に対して, $x'_i = x_i - \lambda_i x_n$とおく.
+            このとき, $s = f_m(\lambda_1, \dots, \lambda_{n-1}, 1) \neq 0$とすれば,
+            $s$は$f(x_1' + \lambda_1x_n, x_{n-1}' + \lambda_{n-1}x_n, x_n)$における
+            $x_n^m$の係数である.
+            したがって,
+            $x_n$はモニック多項式
+            \[
+                s^{-1}f(x_1' + \lambda_1X_n,x_{n-1}' + \lambda_{n-1}X_n, X_n) \in k[x'_1, \dots, x'_{n-1}][X_n]
+            \]
+            の根である.
+            以上より, $x_n$は$A' := k[x'_1, \dots, x'_{n-1}]$上整.
+            さらに, $A$における$A'$の整閉包を$C$とすれば,
+            任意の$1 \leq i \leq n-1$について,
+            $x_i' = x_i - \lambda_ix_n \in C$かつ$x_n \in C$であって, (5.3)より, $C$は環なので,
+            $x_i \in C$となる.
+            ゆえに, $A = C$となり, $A$は$A'$上整である.
+            最後に, $A'$は$n-1$個の元で生成される$k$-代数なので, 帰納法の仮定より,
+            ある代数独立な集合$\set{y_1, \dots, y_r} \subseteq A'$が存在して,
+            $A'$は$k[y_1, \dots, y_r]$上整である.
+            したがって, 整拡大の推移性から, $A$は$k[y_1, \dots, y_r]$上整である.
+            \item $k$を任意の体とする.
+
+            $d > \deg{f}$とする.
+            $x_i' = x_i - x_n^{d^i}$とおく.
+            このとき, $\alpha, \beta \in \mathbb{N}^n$を多重指数とすれば,
+            $\alpha \neq \beta$のとき, $x^\alpha$と$x^\beta$における$x_n$の次数は異なることに注意する.
+            ここで, $f(X) = \prod_{\alpha} c_{\alpha} X^\alpha$とすれば,
+            \[
+                f(x_1' + x^{d^1}, \dots, x_{n-1}' + x^{d^{n-1}}, x_n) = \prod_{\alpha} c_\alpha x_n^{\alpha_n} \prod_{i = 1}^{n-1} (x_i' + x_n^{d^i})^{\alpha_i}
+            \]
+            が成り立つ.
+            各$\alpha$について, $x_n$の次数は異なるので, その次数が最大になるような$\alpha$を$\alpha_0$とおく.
+            このとき,
+            \[
+                \alpha_0^{-1}f(x_1' + X^{d^1}_n, \cdots, x_{n-1}' + X_n^{d^{n-1}}, X_n) \in k[x'_1,\dots,x'_{n-1}, X_n]
+            \]
+            は$x_n$を根に持つモニック多項式である.
+            したがって, $x_n$は$A' := k[x_1', \dots, x_{n-1}']$上整である.
+            さらに, $A$における$A'$の整閉包を$C$とすれば,
+            任意の$1 \leq i \leq n-1$について,
+            $x_i' = x_i - x_n^{d^i} \in C$かつ$x_n \in C$であって, (5.3)より, $C$は環なので,
+            $x_i \in C$となる.
+            ゆえに, $A = C$となり, $A$は$A'$上整である.
+            最後に, $A'$は$n-1$個の元で生成される$k$-代数なので, 帰納法の仮定より,
+            ある代数独立な集合$\set{y_1, \dots, y_r} \subseteq A'$が存在して,
+            $A'$は$k[y_1, \dots, y_r]$上整である.
+            したがって, 整拡大の推移性から, $A$は$k[y_1, \dots, y_r]$上整である.
+        \end{enumerate}
+        \color{red}
+        幾何学的解釈についてはわからん。
+        \color{black}
     \end{problem}
 \end{document}
