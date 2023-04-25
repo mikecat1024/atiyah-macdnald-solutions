@@ -541,7 +541,7 @@
             任意の$1 \leq i \leq n-1$について,
             $x_i' = x_i - x_n^{d^i} \in C$かつ$x_n \in C$であって, (5.3)より, $C$は環なので,
             $x_i \in C$となる.
-            ゆえに, $A = C$となり, $A$は$A'$上整である.
+            ゆえに, $A$は$A'$上整である.
             最後に, $A'$は$n-1$個の元で生成される$k$-代数なので, 帰納法の仮定より,
             ある代数独立な集合$\set{y_1, \dots, y_r} \subseteq A'$が存在して,
             $A'$は$k[y_1, \dots, y_r]$上整である.
@@ -550,5 +550,125 @@
         \color{red}
         幾何学的解釈についてはわからん。
         \color{black}
+    \end{problem}
+
+    \begin{problem}
+        $I(X) \neq (1)$ならば, $X \neq \emptyset$であることを示す.
+        $X = \emptyset$とする.
+        任意の$f \in k[X_1, \dots, X_n]$をとれば,
+        $X$のすべての点に対して, $f$は$0$となるので, $f \in I(X)$.
+        ゆえに, $I(X) = (1)$.
+
+        $k[X_1, \dots, X_n]$の極大イデアルは$a_i \in k$として,
+        $(X_1 -a_1, \dots, X_n - a_n)$と表されることを示す.
+        $\mathfrak{m} \subseteq k[X_1, \dots, X_n]$を極大イデアルとする.
+        このとき, $F := k[X_1, \dots, X_n]/\mathfrak{m}$は有限生成$k$-代数である.
+        したがって, 5.16より,
+        ある$k$上代数独立な集合$\set{f_1, \dots, f_r} \subseteq F$が存在して,
+        $F$は$k[f_1, \dots, f_r]$上整である.
+        また, $F$は体なので, (5.7)より, $k[f_1, \dots, f_r]$は体である.
+        しかし, $\set{f_1, \dots, f_r} \subseteq F$は$k$上代数独立なので,
+        $F$は$k$上整である.
+        \color{red}
+        (ネーターの正規化定理において, $A = k$とすると変な感じになるので, あのステートメントは不完全な気がする.
+        あれを使った上手い書き方がわからない.
+        実際には$r$は超越次数で決まるので, そっちだと思えばよい.)
+        \color{black}
+        これは$F/k$が代数拡大ということを意味するので, $k$が代数閉体であることから,
+        $F = k$が成り立つ.
+        ここで, $F$が有限生成$k$-代数であることから全射
+        \[
+            \phi: k[X_1, \dots, X_n] \longrightarrow F = k
+        \]
+        が存在する.
+        このとき,
+        $\phi(X_i) = a_i$とすれば, $(X_1-a_1, \dots, X_n - a_n) \subseteq \mathfrak{m}$が成り立つ.
+        最後に, $(X_1 - a_1, \dots,X_n - a_n) \subseteq k[X_1, \dots, X_n]$が
+        極大イデアルであることを示す.
+        $X_i \mapsto X_i + a_i$という自己同型を考えることにより, $a_i = 0$としてよい.
+        つまり, $(X_1, \dots, X_n) \subseteq k[X]$が極大イデアルであることを示せばよい.
+        しかし, $f \notin (X_1, \dots, X_n)$とすれば, $f(0) \neq 0 \in k$となる.
+        ゆえに, $(X_1, \dots, X_n) \subseteq k[X]$は極大イデアルである.
+        以上より, $k[X_1, \dots, X_n]$の極大イデアルは$(X_1 -a_1, \dots, X_n-a_n)$という形をしていることが示された.
+    \end{problem}
+
+    \begin{problem}
+        $B$の任意の元が$k$上代数的であることを示せば十分である.
+        5.16より, ある代数独立な集合$\set{y_1, \dots, y_r} \subseteq B$が存在して,
+        $B$は$k[y_1, \dots, y_r]$上整となるが,
+        (5.7)より, $k[y_1, \dots, y_r]$は体となるので,  $B$は$k$上整である.
+        これは$B$の任意の元が$k$上代数的であることを意味するので, 主張が成り立つ.
+    \end{problem}
+
+    \color{red}
+        恐らく, 5.17の後半の主張を示すことを求められていそうなので, そうする.
+        ほぼ同じ証明になってしまったが......?
+    \color{black}
+
+    \begin{problem}
+        $\mathfrak{m} \subseteq k[X] = k[X_1, \dots, X_n]$を極大イデアルとする.
+        $B := k[X_1, \dots, X_n]/\mathfrak{m}$とすれば, これは有限生成$k$-代数かつ体である.
+        5.18より, $B/k$は有限次拡大となるので,
+        $k$が代数閉体であることから, $B = k$が成り立つ.
+        ここで, $B$が有限生成$k$-代数であることから全射
+        \[
+            \phi: k[X_1, \dots, X_n] \longrightarrow B = k
+        \]
+        が存在する.
+        このとき,
+        $\phi(X_i) = a_i$とすれば, $(X_1-a_1, \dots, X_n - a_n) \subseteq \mathfrak{m}$が成り立つ.
+        また, $(X_1 -a_1, \dots, X_n - a_n)$は極大イデアルなので, 主張が成り立つ.
+    \end{problem}
+
+    \begin{problem}
+        $S =  A \setminus \set{0}$とする.
+        このとき, $B$は有限生成$A$-代数なので, $S^{-1}B$は有限生成$K:= \Quot{A}$代数である.
+        5.16より,
+        $K$上代数独立な集合$\set{y_1'/s_1, \dots, y_n'/s_n} \subseteq S^{-1}B$が存在して,
+        $S^{-1}B$が$K[y_1'/s_1, \dots, y_n'/s_n]$上整になる.
+        ここで, $z_1, \dots, z_m \in B$を$A$-代数としての$B$の生成元とする.
+        このとき, $z_i / 1 \in S^{-1}B$は$K[y_1'/s_1, \dots, y_n'/s_n]$上整なので,
+        あるモニックな$f_i \in K[y_1'/s_1, \dots, y_n'/s_n][X]$が存在して, $f_i(z_i/1) = 0$となる.
+        $\alpha_{i,j} \in \mathbb{N}$を多重指数, $c_{i,j}/t_{i,j} \in K$として,
+        \[
+            f_i(X) = \sum_{j} \sum_{\alpha_{i,j}} \frac{c_{i,j}}{t_{i,j}} \frac{{y'}^{\alpha_{i,j}}}{s^{\alpha_{i,j}}} X^j
+        \]
+        とおく.
+        さらに, $\alpha$を$i,j$を動かしたときの$\alpha_{i,j}$の各成分についての最大値として定める.
+        また,
+        \[
+            s := s^\alpha, \quad \quad t := \prod_{i,j} t_{i,j}
+        \]
+        とおけば,
+        \[
+            sf_i(X) = \sum_{j} \sum_{\alpha_{i,j}}  t'_{i,j} c_{i,j} {y'}^{\alpha_{i,j}}{s^{\alpha-\alpha_{i,j}}} X^j
+        \]
+        となる.
+        ただし, $t'_{i,j} = t/t_{i,j} \in S$である.
+        このとき, $y^{\alpha_{i,j}} := y'^{\alpha_{i,j}}s^{\alpha-\alpha_{i,j}}, d_{i,j} := t'_{i,j}c_{i,j}$
+        とすれば, $y'_i/s_i$が$K$上代数独立であることから, $y_1, \dots, y_n$は$A$上代数独立である.
+        また,
+        \[
+            sf_i(X) := \sum_{j} d_{i,j}y^{\alpha_{i,j}}X^j \in A[y_1, \dots, y_n][X] = B'[X]
+        \]
+        は$sf_i(z_i) = 0$を満たす.
+        ここで, $sf_i \in B'[X]$であることから, $f_i \in B_s'[X]$となるので,
+        $z_i/1 \in B_s$は$B'_s$上整である.
+        また, $B_s$は$B'_s$-代数として, $z_i/1$で生成され,
+        整元の和と積はまた整元なので, $B_s$は$B_s'$上整である.
+    \end{problem}
+
+    \color{red}
+    次は翻訳版のステートメントが少し変な気がするので, 原著のステートメントで解く.
+    \color{black}
+
+    \begin{problem}
+        5.20より, $A$上代数独立な集合$\set{y_1, \dots, y_n} \subseteq B$が存在して,
+        と$s \in A$が存在して, $B_s$は$B'_s$上整である.
+        ただし, $B' = A[y_1, \dots, y_n]$である.
+        このとき, $y_i \mapsto 0$とすることにより, $f: A\to \Omega$を$B' \to \Omega$に拡張できる.
+        さらに, $f(s) \neq 0$なので, $1/s \mapsto 1/f(s)$とすることにより, $B'_s \to \Omega$に拡張できる.
+        最後に, $B_s' \subseteq B_s$であることから,
+        5.2より, $f$は$B_s \to \Omega$に拡張できる.
     \end{problem}
 \end{document}
