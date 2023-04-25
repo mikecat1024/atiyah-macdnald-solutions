@@ -866,4 +866,257 @@
             したがって, 5.23より, $A$はJacobson環である.
         \end{description}
     \end{problem}
+
+
+    \begin{problem}
+        局所閉集合$A = E \cap V$について,
+        \[
+            A = E \cap V \cap \overline{A} = V \cap \overline{A}
+        \]
+        となるので, 閉包の中で開集合.
+
+        逆に, $A$が$\overline{A}$の中で開集合と仮定すれば, 部分位相の定義より, $A$は開集合と$\overline{A}$との共通部分になる.
+        \begin{description}
+            \item[(1) $\Rightarrow$ (2)]
+            $E$を閉集合として, $x \in E$とする.
+            $N$を$x$の開近傍とすれば,
+            \[
+                (N \cap E) \cap X_0 \neq \emptyset
+            \]
+            となるので, $N$が任意であることから,
+            $x \in \overline{E \cap X_0}$が成り立つ.
+            ゆえに, $E \subseteq \overline{E \cap X_0}$.
+            逆に,
+            \[
+                \overline{E \cap X_0} \subseteq \overline{E} = E
+            \]
+            なので, $\overline{E \cap X_0} = E$が成り立つ.
+            \item [(2) $\Rightarrow$ (3)]
+            部分位相の定義から, 全射であることは明らか.
+            $U \cap X_0 = V \cap X_0$と仮定する.
+            このとき,
+            $(X \setminus U) \cap X_0 = (X \setminus V) \cap X_0$となるので,
+            特に
+            \[
+                X \setminus U = \overline{(X \setminus U) \cap X_0} = \overline{(X \setminus V) \cap X_0} = X \setminus V
+            \]
+            であり,
+            したがって, $U = V$となる.
+            \item [(3) $\Rightarrow$ (1)]
+            $A$を局所閉集合とする.
+            定義より, ある閉集合$E$と開集合$V$が存在して, $A = E \cap V$と表せる.
+            $A \cap X_0 = \emptyset$とすれば,
+            $V \cap X_0 \subseteq X \setminus E$となるので,
+            \[
+                V \cap X_0 \subseteq V = X_0 \cap V \cap (X \setminus E)
+            \]
+            となる.
+            このとき, (3)より, $v = V \cap (X \setminus E)$となるので,
+            $V \subseteq X \setminus$, つまり, $V \cap E = \emptyset$が成り立つ.
+            \item [i) $\Rightarrow$ ii)]
+            $V(I) \setminus V(J) \neq \emptyset$のとき,
+            $(V(I) \setminus V(J)) \cap \Max{A} = \emptyset$であることを示す.
+            $\mathfrak{p} \in V(I) \setminus V(J)$とすれば, ある$a \in J$が存在して, $a \notin \mathfrak{p}$であって, $I \subseteq \mathfrak{p}$
+            となるので, ある極大イデアル$\mathfrak{m}$が存在して,
+            $I \subseteq \mathfrak{m}$かつ$a \notin \mathfrak{m}$を示せば十分である.
+            $A$がJacobson環であることから, $A/\mathfrak{p}$もJacobson環であって,
+            $A/\mathfrak{p}$は整域なので,
+            \[
+                J(A/\mathfrak{p}) = \sqrt{0_{A/\mathfrak{p}}} = 0
+            \]
+            が成り立つ.
+            このとき, $\mathfrak{p} \subseteq \mathfrak{m}$なるすべての極大イデアルについて, $a \in \mathfrak{m}$と仮定すれば,
+            $\overline{a} = 0 \in A/\mathfrak{p}$となるが,
+            剰余環との極大イデアルの対応関係と$A$がJacobson環であることから,
+            \[
+                a \in \bigcap_{\mathfrak{p} \subseteq \mathfrak{m}} \mathfrak{m} = \mathfrak{p}
+            \]
+            となり, 矛盾.
+            したがって, 主張が成り立つ.
+            \item[ii) $\Rightarrow$ iii)]
+            $\set{\mathfrak{p}} \subseteq \Spec{A}$が局所閉集合であると仮定する.
+            このとき, ある$V(I), V(J) \subseteq \Spec{A}$が存在して,
+            \[
+                \set{\mathfrak{p}} = V(I) \setminus V(J)
+            \]
+            が成り立つ.
+            仮定より, $\set{\mathfrak{p}} \cap \Max{A} \neq \emptyset$
+            なので, $\mathfrak{p} \in \Max{A}$が成り立つ.
+            $\Spec{A}$において, $\mathfrak{m}$は閉点なので, $\set{\mathfrak{p}}$が閉集合であることが従う.
+            \item [iii) $\Rightarrow$ i)]
+            対偶を示す.
+            $A$がJacobson環でないと仮定すると, ある極大でない素イデアル$\mathfrak{p} \in \Spec{A}$が存在して,
+            \[
+                \mathfrak{p} \subsetneq \bigcap_{\mathfrak{q} \supsetneq \mathfrak{p}} \mathfrak{q}
+            \]
+            となるので, $a \in  \bigcap_{\mathfrak{q} \supsetneq \mathfrak{p}} \mathfrak{q} \setminus \mathfrak{p}$とすれば,
+            \[
+                \set{\mathfrak{q}} \cap X_a \cap V(\mathfrak{p})
+            \]
+            は一点からなる局所閉集合になる.
+            しかし, iii)より, これは閉集合なので, $\mathfrak{p}$が極大イデアルになって矛盾.
+            ゆえに主張が成り立つ.
+        \end{description}
+    \end{problem}
+
+    \begin{problem}
+        $\Sigma$に極大元が存在することを示す.
+        まず, $0 \in \Sigma$なので, $\Sigma \neq \emptyset$である.
+        $\Lambda \subseteq \Sigma$を全順序集合とする.
+        このとき, $\bigcup_{A \in \Lambda} A$は環であって,
+        特に局所環になる.
+        実際,
+        $\mathfrak{m}_A$を局所環$A$の極大イデアルとすれば,
+        $\bigcup_{A \in \Lambda} m_A \subseteq \bigcup_{A \in \Lambda} A$
+        は真のイデアルであって,
+        任意の$a \in\bigcup_{A \in \Lambda} A \setminus \bigcup_{A \in \Lambda} m_A$
+        は単元なので, $\bigcup_{A \in \Lambda} m_A$が$\bigcup_{A \in \Lambda} A$の唯一の極大イデアルになる.
+        したがって,
+        $\bigcup_{A \in \Lambda} A$は局所環であって, $\Sigma$における$\Lambda$の上界である.
+        ゆえに, Zornの補題より, $\Sigma$は極大元をもつ.
+        \begin{description}
+            \item[$\Longrightarrow$] $R \in \Sigma$を極大元とする.
+            これが$K$の付値環であることを示す.
+            $A \in \Sigma$に対して,
+            $f_A: A \emb K \emb \overline{K} = \Omega$とすれば,
+            $\Sigma$において,
+            \begin{align*}
+                A \leq B &\Longleftrightarrow A \subseteq B, \mathfrak{m}_A \subseteq \mathfrak{m}_B\\
+                &\Longrightarrow A \subseteq B, f_B|_A = f_A
+            \end{align*}
+            となるので,
+            \[
+                A \leq' B \Longleftrightarrow A \subseteq B, f_B|_A = f_A
+            \]
+            という順序を$\Sigma$という集合に入れると,
+            $(\Sigma, \leq')$の極大元は存在して, $R$になる.
+            実際, そうでなければ, $(\Sigma, \leq)$の極大元が$R$になることに矛盾する.
+            ここで, $(\Sigma, \leq')$は(5.21)での$\Sigma$のうち, 対象の集合を局所環に限定したものであり,
+            (5.19)より, (5.21)での$\Sigma$の極大元が局所環であることは保証されているので,
+            (5.21)より, $R$は$K$の付値環になる.
+            \item[$\Longleftarrow$] $A$を$K$の付値環とする.
+            これが$\Sigma$の極大元であることを示す.
+            まず, (5.18)より, $A$は特に局所環なので, $A \in \Sigma$である.
+            $A$が極大元でないと仮定すれば, ある$B \in \Sigma$が存在して,
+            $A \subsetneq B$かつ$\mathfrak{m}_A \subseteq \mathfrak{m}_B$が成り立つ.
+            $x \in B \setminus A$とする.
+            $x \in B \subseteq K$であって, $A$は$K$の付値環なので,
+            $x^{-1} \in A \subseteq B$が成り立つ.
+            しかし, $x \notin A$より, $x^{-1} \in A$は単元ではないので,
+            $x^{-1} \in \mathfrak{m}_A \subseteq \mathfrak{m}_B$となる.
+            これは, $x \in B$が単元であることに反するので, 矛盾.
+            したがって, $A$は$\Sigma$の極大元である.
+        \end{description}
+    \end{problem}
+
+    \begin{problem}
+        \begin{description}
+            \item[(1) $\Rightarrow$ (2)]
+            $\mathfrak{a} \not \subseteq \mathfrak{b}$かつ$\mathfrak{a} \not \subseteq \mathfrak{b}$と仮定する.
+            このとき, ある$a \in \mathfrak{a} \setminus \mathfrak{b}$とある$b \in \mathfrak{b} \setminus \mathfrak{a}$が存在する.
+            また, 仮定より$A$は付値環なので,
+            $a/b \in A$または$b/a \in A$となる.
+            一般性を失わずに, $a/b \in A$と仮定してよい.
+            しかし, この両辺に$b$をかければ,
+            \[
+                a = \frac{a}{b}b \in Ab= \mathfrak{b}
+            \]
+            となるので, 矛盾.
+            したがって主張が成り立つ.
+            \item[(2) $\Rightarrow$ (1)]
+            仮定より, $A$のイデアルは包含関係について全順序なので,
+            $A$は局所環である.
+            $a/b \in K$を任意に取り, $a/b \in A$または$b/a \in A$であることを示す.
+            $K$は$A$の商体なので, $a, b \in A$である.
+            ここで, $a,b$のいずれかが単元の場合は明らかに成り立つので,
+            そうでないと仮定する.
+            さらに, $a,b$で生成される$A$のイデアルを$\mathfrak{a}$,$\mathfrak{b}$とすれば,
+            仮定より $\mathfrak{a} \subseteq \mathfrak{b}$または$\mathfrak{b} \subseteq \mathfrak{a}$となる.
+
+            $\mathfrak{a} \subseteq \mathfrak{b}$
+            の場合を考える.
+            $a = 0$の場合は$a/b = 0 \in A$となって主張が成立するので, $a \neq 0$と仮定してよい.
+            このとき, ある$r \in A \setminus \set{0}$が存在して, $a = rb$となるが,
+            $a/b, r \in K$は
+            \[
+                \frac{a}{b}b = a =  rb
+            \]
+            を満たすので, $r \neq 0$と$K$が整域であることから, $a/b = r \in A$が成り立つ.
+
+            次に, $\mathfrak{b} \subseteq \mathfrak{a}$の場合を考える.
+            $a/b \in K$より, $b\neq 0$なので, ある$r \in A \setminus \set{0}$が存在して,
+            $b = ra$が成り立つ.
+            また, $a \neq 0$であることに注意すれば,
+            $b/a, r \in K$が
+            \[
+                \frac{b}{a}a = b =  ra
+            \]
+            が成り立つので, $r \neq 0$と$K$が整域であることから, $b/a = r \in A$が成り立つ.
+            したがって, 主張が成り立つ.
+        \end{description}
+        これより, イデアルの対応関係を考えれば, $A_\mathfrak{p}$, $A/\mathfrak{p}$は付値環である.
+    \end{problem}
+
+    \begin{definition}
+        $B$が$A$の局所環であるとは, ある$\mathfrak{p} \in \Spec{A}$が存在して,
+        $B = A_\mathfrak{p}$となることである.
+    \end{definition}
+
+    \begin{problem}
+        $\mathfrak{p} = \mathfrak{m}_B \cap A$として, $A_\mathfrak{p} = B$が成り立つことを示す.
+        任意の$s \in A \setminus \mathfrak{p}$について, $s \notin \mathfrak{m}_B$なので,
+        $a \in A$とすれば, $a/s \in B$となる.
+        ゆえに, $A_\mathfrak{p} \subseteq B$が成り立つ.
+
+        次に, これを用いて$A_\mathfrak{p} = B$を示す.
+        $A$が整域であることから, $A \subseteq A_\mathfrak{p} \subseteq B$とみることができ,
+        これより,
+        $K \subseteq \Quot{A_\mathfrak{p}} \subseteq K$となるので,
+        $\Quot{A_\mathfrak{p}} = K$が成り立つ.
+        また, $A$が整域であることから,
+        $A_\mathfrak{p}$は整域であって,
+        $A_\mathfrak{p}$は$\mathfrak{p}A_\mathfrak{p}$を極大イデアルとしてもつ.
+        さらに, $A$が付値環であることと, イデアルの対応関係,
+        5.28より, $A_\mathfrak{p}$は付値環である.
+        ここで, $\mathfrak{p}A_\mathfrak{p} \subseteq  \mathfrak{m}_B$が成り立つので,
+        5.27における$\Sigma$の順序$\leq$について,
+        $A_\mathfrak{p} \leq B$が成り立つ.
+        また, $A_\mathfrak{p}$と$B$はともに$K$の付値環なので, 5.27より,
+        $\Sigma$の極大元である.
+        したがって, $B = A_\mathfrak{p}$が成り立つ.
+    \end{problem}
+
+    \begin{problem}
+        まず, $U$は$A$の積を演算として群であり,
+        集合としても$U \subseteq K^\ast$なので, $U$は$K^\ast$の部分群である.
+
+        $\Gamma$の元の代表元の選び方は$U$だけの幅をもつので,
+        $\leqslant$はwell-definedである.
+
+        次に$\leqslant$が全順序であることを示す.
+        反射律と推移律は自明に成り立ち,
+        $x,y$をステートメントのようにとったときに
+        $xy^{-1}, yx^{-1} \in A$が成り立つと仮定すれば,
+        これらは互いに逆元になるので, 特に
+        $xy^{-1} \in U$が成り立つ.
+        ここで,
+        \[
+            xy^{-1}y = x
+        \]
+        となるので, $\xi = \eta$が成り立つ.
+        また, $A$は$K$の付値環なので, 全順序律も成り立つ.
+        以上より, $\leqslant$は$\Gamma$に全順序を定める.
+        $\leqslant$が$\Gamma$の群構造と整合性をもつことは直ちに従う.
+
+        最後に, $x, y \in K^\ast$に対して, $v(x+y) \geqslant \min(v(x), v(y))$となることを示す.
+        $A$は$K$の付値環なので,
+        $x/y \in A$または$y/x \in A$が成り立つ.
+        \begin{align*}
+            v(x+y) \geqslant \min(v(x), v(y))
+            &\Longleftrightarrow (x + y)x^{-1} \in A \quad \mbox{or} \quad (x+y)y^{-1} \in A\\
+            &\Longleftrightarrow yx^{-1} \in A \quad \mbox{or} \quad xy^{-1} \in A\\
+            &\Longleftrightarrow v(y) \geqslant v(x) \quad \mbox{or} \quad v(x) \geqslant v(y)
+        \end{align*}
+        となるので, $\geqslant$の全順序律から, これは常に成り立つ.
+    \end{problem}
 \end{document}
