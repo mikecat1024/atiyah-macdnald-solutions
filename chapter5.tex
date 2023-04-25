@@ -671,4 +671,199 @@
         最後に, $B_s' \subseteq B_s$であることから,
         5.2より, $f$は$B_s \to \Omega$に拡張できる.
     \end{problem}
+
+    \begin{problem}
+        $v \in B \setminus \set{0}$を任意に取り, $v$を含まない$B$の極大イデアル
+        が存在することを示せば十分である.
+        $B$は整域なので, $A \subseteq B_v$としてよく, $B_v$もまた整域であって,
+        有限生成$A$-代数である.
+        ここで, 5.21によって存在が保証される$s \in A$をとる.
+        $J(A) = 0$より, $A$のある極大イデアル$\mathfrak{m}$が存在して, $s \notin \mathfrak{m}$を満たす.
+        \[
+            f: A \to A/\mathfrak{m} =: k \emb \overline{k} =: \Omega
+        \]
+        について, $f(s) \neq 0$なので, 5.21より, $g: B_v \to \Omega$に拡張できる.
+        このとき, $v/1 \in B_v$は単元で, 単元の像は単元なので, $g(v/1) \neq 0$であることに注意する.
+        ゆえに, $\mathfrak{n} \cap B := \ker{g} \cap B$が$B$の極大イデアルであれば, 主張が成り立つ.
+        まず, $\ker{g} \cap A = \mathfrak{m}$なので,
+        $k = A/\mathfrak{m} \subseteq B_v/\mathfrak{n}$とみなせる.
+        これに加えて, 準同型定理によって$B_v/\mathfrak{n} \subseteq \Omega$とみなせるので,
+        代数拡大の中間にある環は体であることから, $\mathfrak{n}$は極大イデアルである.
+        さらに, $\mathfrak{n} \cap A$は極大イデアルであって,
+        なので, $B/A$が整拡大であることと, (5.8)より, $\mathfrak{n} \cap B$は$B$の極大イデアルである.
+        したがって, 主張が示された.
+    \end{problem}
+
+    \color{red}
+    ii)で, 零環に対する準同型の像は除かないとダメな気がしている.
+    それを仮定します.
+    \color{black}
+
+    \begin{problem}
+        \begin{description}
+            \item[i) $\Rightarrow$ iii)] 明らか.
+            \item[ii) $\Rightarrow$ i)] 対偶を示す.
+            $\mathfrak{p} \in \Spec{A}$をi)を満たさない素イデアルとする.
+            つまり,
+            \[
+                \mathfrak{p} \subsetneq \bigcap_{\mathfrak{p} \subseteq \mathfrak{m}} \mathfrak{m}
+            \]
+            とする.
+            ただし, $\mathfrak{m}$は$A$の極大イデアルである.
+            このとき, $J(A/\mathfrak{p}) \neq 0$であって, $A/\mathfrak{p}$は整域なので,
+            \[
+                A \longrightarrow  A/\mathfrak{p}
+            \]
+            という射の像において, $J(A/\mathfrak{p}) \neq \sqrt{0_{A/\mathfrak{p}}}$となるので, 対偶が成り立つ.
+            \item[iii) $\Rightarrow$ ii)]
+            ii)が成り立たないと仮定すれば, $f(A) \neq 0$となるような環の射$f$が存在して,
+            $\sqrt{0_{f(A)}} \subsetneq J(f(A))$
+            となる.
+            ここで, $x \in J(f(A)) \setminus \sqrt{0_{f(A)}}$をとる.
+            このとき, ある極大でない素イデアル$\mathfrak{q} \in \Spec{f(A)}$が存在して,
+            $x \notin \mathfrak{q}$を満たす.
+            $\mathfrak{p} = f^{-1}(\mathfrak{q})$とする.
+            $x \notin \mathfrak{q}$より, $f^{-1}(x) \cap \mathfrak{p} = \emptyset$であり,
+            $f(A) \cong A/\ker{f}$とイデアルの対応関係を考えれば,
+            任意の$\mathfrak{m} \in \Max{A}$について,
+            $\ker{f} \subseteq \mathfrak{m}$であって,
+            $f^{-1}(x) \cap \mathfrak{m} \neq \emptyset$が成り立つ.
+            $a \in f^{-1}(x) \cap \mathfrak{m}$とすれば,
+            \[
+                f^{-1}(x) = a + \ker{f}
+            \]
+            であることから,
+            $f^{-1}(x) \subseteq \mathfrak{m}$が成り立つ.
+            今, $\mathfrak{m}$は任意なので,
+            $f^{-1}(x) \subseteq j(A)$となるが,
+            このとき,
+            \[
+                f^{-1}(x) \subseteq J(A) \setminus \mathfrak{p}
+            \]
+            となるので, iii)に反する.
+            したがって, 対偶をとれば, 主張が従う.
+        \end{description}
+    \end{problem}
+
+    \begin{lemma}
+        Jacobson環$A$の環の射$f$による像はJacobson環.
+    \end{lemma}
+    \begin{proof}
+        $f(A) \cong A/\ker{f}$なので, Jacobson環の剰余環がJacobson環であることを示せば十分である.
+        $A$のイデアルを$I$とし, $\mathfrak{p}/I \in \Spec{A/I}$を任意にとる.
+        このとき, $A$がJacobson環であることから,
+        \[
+            \mathfrak{p} = \bigcap_{\mathfrak{p} \subseteq \mathfrak{m} \in \Max{A}} \mathfrak{m}
+        \]
+        となるが, 剰余環のイデアルとの対応関係から,
+        \[
+            f^{-1}(\mathfrak{p}/I) = \mathfrak{p} = \bigcap_{\mathfrak{p} \subseteq \mathfrak{m} \in \Max{A}} \mathfrak{m} = \bigcap_{\mathfrak{p}/I \subseteq \mathfrak{m}/I \in \Max{A}} f^{-1}(\mathfrak{m}/I) = f^{-1}\qty( \bigcap_{\mathfrak{p}/I \subseteq \mathfrak{m}/I \in \Max{A}} f^{-1}(\mathfrak{m}/I))
+        \]
+        となるが, $f$は全射なので,
+        \[
+            \mathfrak{p}/I = \bigcap_{\mathfrak{p}/I \subseteq \mathfrak{m}/I \in \Max{A}} f^{-1}(\mathfrak{m}/I)
+        \]
+        が成り立つ.
+        したがって, 5.23より, 剰余環はJacobson環であって, $f(A)$もJacobson環になる.
+    \end{proof}
+
+    \color{red}
+    $A$-代数$B$について, 整というのは, $f(A) \subseteq B$として整ということだっけ？
+    \color{black}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item $B$が$A$上整と仮定する.
+            補題より, $f(A) \subseteq B$はJacobson環なので, $A \subseteq B$としてよい.
+            $\mathfrak{q} \in \Spec{B}$を任意にとり,
+            \[
+                \mathfrak{q} = \bigcap_{\mathfrak{q} \subseteq \mathfrak{n} \in \Max{B}} \mathfrak{n}
+            \]
+            となることを示せばよい.
+            $\mathfrak{p} := A \cap \mathfrak{q}$とすれば,
+            $A$がJacobson環であることから,
+            \[
+                \mathfrak{p} = \bigcap_{\mathfrak{p} \subseteq \mathfrak{m} \in \Max{A}} \mathfrak{m}
+            \]
+            となる.
+            ここで,
+            (5.11)より,
+            任意の$\mathfrak{m} \supseteq \mathfrak{p}$について,
+            ある$\mathfrak{n} \supseteq \mathfrak{q}$が存在して, $\mathfrak{n} \cap A = \mathfrak{m}$が成り立つ.
+            このような$\mathfrak{n}$の共通部分をとれば,
+            \[
+                \mathfrak{q} \subseteq \bigcap \mathfrak{n} =: \mathfrak{q}'
+            \]
+            となるが,
+            \[
+                \mathfrak{q}' \cap A  = \bigcap_{\mathfrak{p} \subseteq \mathfrak{m} \in \Max{A}} \mathfrak{m} = \mathfrak{p} = \mathfrak{q} \cap A
+            \]
+            となるので, (5.9)より,
+            $\mathfrak{q}' = \mathfrak{q}$となる.
+            したがって, $B$はJacobson環となり, 対偶をとれば, 主張が示された.
+            \item $A \subseteq B$としてよい.
+            $\mathfrak{q} \in \Spec{B}$とすれば, $B /\mathfrak{q}$は有限生成$A/A \cap \mathfrak{q}$-代数である.
+            $A$はJacobson環なので, $A/A \cap \mathfrak{q}$もJacobson環であり,
+            $A/A \cap \mathfrak{q}$は整域なので,
+            $J(A/A\cap\mathfrak{q}) = \sqrt{0_{A/A\cap\mathfrak{q}}} = 0$が成り立つ.
+            このとき, 5.22より, $J(B/\mathfrak{q}) = 0$が成り立つ.
+            $\mathfrak{q}$を含む$B$の極大イデアルは$B/\mathfrak{q}$の極大イデアルと一対一に対応するので,
+            \[
+                \mathfrak{q} = \bigcap_{\mathfrak{q} \subseteq \mathfrak{m} \in \Max{B}} \mathfrak{m}
+            \]
+            となる.
+            今, $\mathfrak{q} \in \Spec{B}$は任意なので,
+            $B$はJacobson環になる.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{note}
+        Jacobson環の剰余環, 像, 性拡大, 有限次拡大はJaconbson環.
+    \end{note}
+
+    \begin{lemma} \label{lem: 有限ならば整}
+        有限$A$-代数$B$は$A$上整.
+    \end{lemma}
+    \begin{proof}
+        任意の$x \in B$について, $f(A)[x] \subseteq B$であるから, $f(A)[x]$は有限生成$A$-加群である.
+        ゆえに, (5.1)より, 主張が成り立つ.
+    \end{proof}
+
+    \begin{problem}
+        \begin{description}
+            \item[i) $\Rightarrow$ ii)]
+            $s \in f(A) \setminus \set{0}$を
+            5.21で存在が保証されているようなものとする.
+            $f(A)$はJacobson環であって, 体$B$の部分環として整域なので,
+            $J(f(A)) = \sqrt{0_{f(A)}}$が成り立つ.
+            これより, ある$\mathfrak{m} \in \Max{f(A)}$で, $s \notin \mathfrak{m}$を満たすものが存在する.
+            環の射$f(A) \to f(A)/\mathfrak{m} = k$を考えれば, 5.21より, これは$g:B \to \overline{k}$へ拡張される.
+            $B$は体なので, (1.2)より$g$は単射である.
+            ゆえに, $g(B) \cong B$.
+            したがって, $g(B)$は体かつ有限生成$A$-加群である.
+            5.18より, $g(B)$は有限次代数拡大体, つまり, $k$-線形空間なので, 有限$k$-代数である.
+            \item[ii) $\Rightarrow$ i)]
+            $\mathfrak{p} \in \Spec{A}$を極大でない素イデアルとする.
+            これが
+            \[
+                \mathfrak{p} = \bigcap_{\mathfrak{p} \subsetneq \mathfrak{q}} \mathfrak{q}
+            \]
+            を満たすことを示す.
+            そのためには, イデアルの対応関係から, $B = A/\mathfrak{p}$として,
+            \[
+                \bigcap_{\mathfrak{q} \in \Spec{B}\setminus\set{0}} \mathfrak{q} = 0
+            \]
+            であることを示せば十分である.
+            つまり, 任意に$f \in B \setminus \set{0}$をとり, ある$\mathfrak{q} \in \Spec{B} \setminus \set{0}$が存在して, $f \notin \mathfrak{q}$を示す.
+            $B_f$は有限生成$B$-代数なので, 全射$A \to B$を考えれば, $B_f$は有限生成$A$-代数である.
+            $B_f$が体ならば, 仮定より$B_f$は$B$上有限であり, \cref{lem: 有限ならば整}より, $B_f/B$は整拡大になる.
+            このとき, (5.7)より, $B$は体である.
+            しかし, $B = A/\mathfrak{p}$で, $\mathfrak{p}$は極大イデアルではないので,
+            これは矛盾.
+            したがって, $B_f$は体ではない.
+            このとき, $B_f$は零ではない素イデアル$\mathfrak{q}'$をもつ.
+            $B \to B_f$による$\mathfrak{q}$の縮約を$\mathfrak{q}$とすれば, $f \notin \mathfrak{q}$を満たす.
+            したがって, 5.23より, $A$はJacobson環である.
+        \end{description}
+    \end{problem}
 \end{document}
