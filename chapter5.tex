@@ -44,6 +44,14 @@
         $f^{\ast}$の制限によって$\Spec{B/J} \to \Spec{A/f^{-1}(J)}$が全射であることが従う.
     \end{problem}
 
+    \begin{lemma}
+        整拡大の商体は代数拡大.
+    \end{lemma}
+
+    \begin{lemma}
+        代数拡大$L/K$と代数閉体$\Omega$について, $K \to \Omega$は$L \to \Omega$に拡張できる.
+    \end{lemma}
+
     \begin{problem}
         $\mathfrak{p} = \ker{f}$とする.
         (5.10)より, ある$\mathfrak{q}$が存在して, $\mathfrak{p} = \mathfrak{q} \cap A$が成り立つ.
@@ -141,7 +149,7 @@
         \[
             b^n+ a_1 b^{n-1} + \cdots + a_n = 0
         \]
-        となるので, 主著うは成り立つ.
+        となるので, 主張は成り立つ.
     \end{problem}
 
     \begin{problem}
@@ -165,6 +173,11 @@
         しかし, 後者の場合にも$a_{n-1}$を適当におきかえれば, 帰納法の仮定より, $b \in A$が成り立つので,
         主張は成立する.
     \end{problem}
+
+    \begin{lemma}
+        任意の環$A$に対して, $f \in A[X]$とする.
+        このとき, ある環$B \supseteq A$とある$b \in B$が存在して, $f(b) = 0$となる.
+    \end{lemma}
 
     \begin{problem}
         \begin{enumerate}
@@ -303,13 +316,34 @@
         ゆえに, この写像はwell-definedである.
         次に$\phi$の逆写像を
         \[
-            \psi: (S^{-1}A)^G \ni a/s \longrightarrow b/t \in (S^G)^{-1}A^G
+            \psi: (S^{-1}A)^G \ni a/s \longrightarrow a/s \in (S^G)^{-1}A^G
         \]
         と定めれば, $a/s = b/t \in (S^{-1}A)^G$のとき,
         ある$u \in S$が存在して, $u(at-bs) = 0$となるが,
         $u_0 = \prod_{\sigma \in G} \sigma(u) \in S^{G}$について,
         $u_0(at-bs) = 0$となるので, $a/s = b/t \in (S^{G})^{-1}A^G$が成り立つ.
-        ゆえに, この写像もwell-definedである.
+        さらに,
+        $s' := \prod_{\sigma \neq 1} \sigma(s)$とすれば, $ss'/1 \in (S^{-1}A)^G$なので,
+        \[
+            as'/1 = (a/s)(ss'/1) \in (S^{-1}A)^G
+        \]
+        が成り立つ.
+        これより, 任意の$\sigma \in G$に対して, $\sigma(as')/1 = as'/1 \in (S^{-1}A)^G$なので,
+        ある$t \in S$が存在して,
+        \[
+            t\sigma(as') = tas'
+        \]
+        が成り立つ.
+        このとき, $t' = \prod_{\sigma \neq 1} \sigma(t)$とすれば, $tt' \in S^G$なので,
+        \[
+            \sigma(tt'as') = tt' \sigma(as') = tt'as'
+        \]
+        となる.
+        したがって,
+        \[
+            a/s = (tt'as'/tt')(1/ss') \in (S^G)^{-1}A^G
+        \]
+        となるので, この写像もwell-definedである.
         $\phi, \psi$は明らかに環の射であって, 互いに逆写像をなすので,
         $(S^{-1}A)^G \cong (S^G)^{-1}A^G$が成り立つ.
     \end{problem}
@@ -338,7 +372,7 @@
         (5.9)を使えば, $\mathfrak{q}_1 = \sigma(\mathfrak{q}_2)$
         となる.
         このとき, $\mathfrak{q}_1, \mathfrak{q}_2 \in P$は任意にとっているので,
-        $G$は$P$状に推移的に作用し,
+        $G$は$P$上に推移的に作用し,
         特に$G$は有限集合なので, $P$は有限集合である.
     \end{problem}
 
@@ -353,7 +387,7 @@
         となる.
         ゆえに,
         \[
-            \sigma(x^n + a_1 x^{n-1} + \cdots + a_n) = 0
+            \sigma(x^n_0 + a_1 x^{n-1}_0 + \cdots + a_n) = 0
         \]
         となるが, $\sigma$は特に単射なので,
         \[
@@ -385,12 +419,17 @@
         ゆえに, $B^G \subseteq A$となり, $B^G = A$が成り立つ.
     \end{problem}
 
+    \begin{lemma}
+        $L$が$K$上分離的な場合, $L$の正規閉包を$N$とすれば,
+            $N/K$は分離的な有限次正規拡大である.
+    \end{lemma}
+
     \begin{problem}
         任意の代数拡大$L/K$について,
         ある中間体$M$が存在して,
         $L/M$は純分離拡大, $M/K$は拡大になる.
         ゆえに, 分離拡大の場合と純非分離拡大の場合について示されれば,
-        $M$における$A$の整閉包を$B$, $L/M$における$B$の整閉包を$C$として,
+        $M$における$A$の整閉包を$B$, $L/M$における$A$の整閉包を$C$として,
         \[
             \Spec{C} \longrightarrow \Spec{B} \longrightarrow \Spec{A}
         \]
@@ -399,10 +438,8 @@
 
         \begin{enumerate}
             \item 分離拡大の場合,
-            \color{red}
             $L$が$K$上分離的な場合, $L$の正規閉包を$N$とすれば,
             $N/K$は分離的な有限次正規拡大である.
-            \color{black}
             $N$における$B$の整閉包を$C$として, $G = \Gal(N/K)$とすれば,
             5.14より, $A = C^G$が成り立つ.
             また, 5.13より,
@@ -533,7 +570,7 @@
             各$\alpha$について, $x_n$の次数は異なるので, その次数が最大になるような$\alpha$を$\alpha_0$とおく.
             このとき,
             \[
-                \alpha_0^{-1}f(x_1' + X^{d^1}_n, \cdots, x_{n-1}' + X_n^{d^{n-1}}, X_n) \in k[x'_1,\dots,x'_{n-1}, X_n]
+                c_{\alpha_0}^{-1}f(x_1' + X^{d^1}_n, \cdots, x_{n-1}' + X_n^{d^{n-1}}, X_n) \in k[x'_1,\dots,x'_{n-1}, X_n]
             \]
             は$x_n$を根に持つモニック多項式である.
             したがって, $x_n$は$A' := k[x_1', \dots, x_{n-1}']$上整である.
@@ -563,18 +600,13 @@
         $(X_1 -a_1, \dots, X_n - a_n)$と表されることを示す.
         $\mathfrak{m} \subseteq k[X_1, \dots, X_n]$を極大イデアルとする.
         このとき, $F := k[X_1, \dots, X_n]/\mathfrak{m}$は有限生成$k$-代数である.
-        したがって, 5.16より,
-        ある$k$上代数独立な集合$\set{f_1, \dots, f_r} \subseteq F$が存在して,
-        $F$は$k[f_1, \dots, f_r]$上整である.
-        また, $F$は体なので, (5.7)より, $k[f_1, \dots, f_r]$は体である.
-        しかし, $\set{f_1, \dots, f_r} \subseteq F$は$k$上代数独立なので,
-        $F$は$k$上整である.
-        \color{red}
-        (ネーターの正規化定理において, $A = k$とすると変な感じになるので, あのステートメントは不完全な気がする.
-        あれを使った上手い書き方がわからない.
-        実際には$r$は超越次数で決まるので, そっちだと思えばよい.)
-        \color{black}
-        これは$F/k$が代数拡大ということを意味するので, $k$が代数閉体であることから,
+        % したがって, 5.16より,
+        % ある$k$上代数独立な集合$\set{f_1, \dots, f_r} \subseteq F$が存在して,
+        % $F$は$k[f_1, \dots, f_r]$上整である.
+        % また, $F$は体なので, (5.7)より, $k[f_1, \dots, f_r]$は体である.
+        % しかし, $\set{f_1, \dots, f_r} \subseteq F$は$k$上代数独立なので,
+        % $F$は$k$上整である.
+        (5.24)より, これは$F/k$が代数拡大ということを意味するので, $k$が代数閉体であることから,
         $F = k$が成り立つ.
         ここで, $F$が有限生成$k$-代数であることから全射
         \[
@@ -592,6 +624,8 @@
         以上より, $k[X_1, \dots, X_n]$の極大イデアルは$(X_1 -a_1, \dots, X_n-a_n)$という形をしていることが示された.
     \end{problem}
 
+    次は(5.24)でもよい.
+
     \begin{problem}
         $B$の任意の元が$k$上代数的であることを示せば十分である.
         5.16より, ある代数独立な集合$\set{y_1, \dots, y_r} \subseteq B$が存在して,
@@ -608,7 +642,7 @@
     \begin{problem}
         $\mathfrak{m} \subseteq k[X] = k[X_1, \dots, X_n]$を極大イデアルとする.
         $B := k[X_1, \dots, X_n]/\mathfrak{m}$とすれば, これは有限生成$k$-代数かつ体である.
-        5.18より, $B/k$は有限次拡大となるので,
+        5.24より, $B/k$は有限次拡大となるので,
         $k$が代数閉体であることから, $B = k$が成り立つ.
         ここで, $B$が有限生成$k$-代数であることから全射
         \[
@@ -672,6 +706,10 @@
         5.2より, $f$は$B_s \to \Omega$に拡張できる.
     \end{problem}
 
+    \begin{lemma}
+        代数拡大の中間にある環は体.
+    \end{lemma}
+
     \begin{problem}
         $v \in B \setminus \set{0}$を任意に取り, $v$を含まない$B$の極大イデアル
         が存在することを示せば十分である.
@@ -701,7 +739,11 @@
 
     \begin{problem}
         \begin{description}
-            \item[i) $\Rightarrow$ iii)] 明らか.
+            \item[i) $\Rightarrow$ iii)]
+            \[
+                \mathfrak{p} \subseteq \bigcap_{\mathfrak{p} \subsetneq \mathfrak{q} \in \Spec{A}} \mathfrak{q} \subseteq \bigcap_{\mathfrak{p} \subsetneq \mathfrak{m} \in \Max{A}} \mathfrak{m} = \mathfrak{p}
+            \]
+            より成り立つ.
             \item[ii) $\Rightarrow$ i)] 対偶を示す.
             $\mathfrak{p} \in \Spec{A}$をi)を満たさない素イデアルとする.
             つまり,
@@ -720,28 +762,36 @@
             $\sqrt{0_{f(A)}} \subsetneq J(f(A))$
             となる.
             ここで, $x \in J(f(A)) \setminus \sqrt{0_{f(A)}}$をとる.
-            このとき, ある極大でない素イデアル$\mathfrak{q} \in \Spec{f(A)}$が存在して,
-            $x \notin \mathfrak{q}$を満たす.
+            また, $f(A)_x$の極大イデアルに対応する$f(A)$の素イデアルを$\mathfrak{q}$として,
             $\mathfrak{p} = f^{-1}(\mathfrak{q})$とする.
-            $x \notin \mathfrak{q}$より, $f^{-1}(x) \cap \mathfrak{p} = \emptyset$であり,
-            $f(A) \cong A/\ker{f}$とイデアルの対応関係を考えれば,
-            任意の$\mathfrak{m} \in \Max{A}$について,
-            $\ker{f} \subseteq \mathfrak{m}$であって,
-            $f^{-1}(x) \cap \mathfrak{m} \neq \emptyset$が成り立つ.
-            $a \in f^{-1}(x) \cap \mathfrak{m}$とすれば,
-            \[
-                f^{-1}(x) = a + \ker{f}
-            \]
-            であることから,
-            $f^{-1}(x) \subseteq \mathfrak{m}$が成り立つ.
-            今, $\mathfrak{m}$は任意なので,
-            $f^{-1}(x) \subseteq j(A)$となるが,
-            このとき,
-            \[
-                f^{-1}(x) \subseteq J(A) \setminus \mathfrak{p}
-            \]
-            となるので, iii)に反する.
-            したがって, 対偶をとれば, 主張が従う.
+            このとき, $f^{-1}(x) \cap \mathfrak{p} = \emptyset$が成り立つ.
+
+            局所化によるイデアルの対応関係から, $f(A)$において, $\mathfrak{q}$を含むすべての素イデアルは$x$を含む.
+            また, $f(A) = A/\ker{f}$と$\ker{f} \subseteq \mathfrak{p}$より,
+            $A$はiii)を満たさない.
+
+            % このとき, ある極大でない素イデアル$\mathfrak{q} \in \Spec{f(A)}$が存在して,
+            % $x \notin \mathfrak{q}$を満たす.
+            % $\mathfrak{p} = f^{-1}(\mathfrak{q})$とする.
+            % $x \notin \mathfrak{q}$より, $f^{-1}(x) \cap \mathfrak{p} = \emptyset$であり,
+            % $f(A) \cong A/\ker{f}$とイデアルの対応関係を考えれば,
+            % 任意の$\mathfrak{m} \in \Max{A}$について,
+            % $\ker{f} \subseteq \mathfrak{m}$であって,
+            % $f^{-1}(x) \cap \mathfrak{m} \neq \emptyset$が成り立つ.
+            % $a \in f^{-1}(x) \cap \mathfrak{m}$とすれば,
+            % \[
+            %     f^{-1}(x) = a + \ker{f}
+            % \]
+            % であることから,
+            % $f^{-1}(x) \subseteq \mathfrak{m}$が成り立つ.
+            % 今, $\mathfrak{m}$は任意なので,
+            % $f^{-1}(x) \subseteq j(A)$となるが,
+            % このとき,
+            % \[
+            %     f^{-1}(x) \subseteq J(A) \setminus \mathfrak{p}
+            % \]
+            % となるので, iii)に反する.
+            % したがって, 対偶をとれば, 主張が従う.
         \end{description}
     \end{problem}
 
@@ -835,13 +885,16 @@
             $s \in f(A) \setminus \set{0}$を
             5.21で存在が保証されているようなものとする.
             $f(A)$はJacobson環であって, 体$B$の部分環として整域なので,
-            $J(f(A)) = \sqrt{0_{f(A)}}$が成り立つ.
+            $J(f(A)) = \sqrt{0_{f(A)}} = 0$が成り立つ.
             これより, ある$\mathfrak{m} \in \Max{f(A)}$で, $s \notin \mathfrak{m}$を満たすものが存在する.
             環の射$f(A) \to f(A)/\mathfrak{m} = k$を考えれば, 5.21より, これは$g:B \to \overline{k}$へ拡張される.
             $B$は体なので, (1.2)より$g$は単射である.
             ゆえに, $g(B) \cong B$.
-            したがって, $g(B)$は体かつ有限生成$A$-加群である.
-            5.18より, $g(B)$は有限次代数拡大体, つまり, $k$-線形空間なので, 有限$k$-代数である.
+            したがって, $g(B)$は体かつ有限生成$k$-代数である.
+            ゆえに, (5.24)より, $B/k$は有限次代数拡大である.
+            特に, 有限生成$k$-加群なので,
+            全射$A \to f(A) \to k$を考えれば, $B$は有限$A$-代数となる.
+            % 5.18より, $g(B)$は有限次代数拡大体, つまり, $k$-線形空間なので, 有限$k$-代数である.
             \item[ii) $\Rightarrow$ i)]
             $\mathfrak{p} \in \Spec{A}$を極大でない素イデアルとする.
             これが
@@ -862,7 +915,7 @@
             これは矛盾.
             したがって, $B_f$は体ではない.
             このとき, $B_f$は零ではない素イデアル$\mathfrak{q}'$をもつ.
-            $B \to B_f$による$\mathfrak{q}$の縮約を$\mathfrak{q}$とすれば, $f \notin \mathfrak{q}$を満たす.
+            $B \to B_f$による$\mathfrak{q}'$の縮約を$\mathfrak{q}$とすれば, $f \notin \mathfrak{q}$を満たす.
             したがって, 5.23より, $A$はJacobson環である.
         \end{description}
     \end{problem}
@@ -876,6 +929,7 @@
         となるので, 閉包の中で開集合.
 
         逆に, $A$が$\overline{A}$の中で開集合と仮定すれば, 部分位相の定義より, $A$は開集合と$\overline{A}$との共通部分になる.
+        ゆえに, 局所閉である.
         \begin{description}
             \item[(1) $\Rightarrow$ (2)]
             $E$を閉集合として, $x \in E$とする.
@@ -908,11 +962,12 @@
             $A \cap X_0 = \emptyset$とすれば,
             $V \cap X_0 \subseteq X \setminus E$となるので,
             \[
-                V \cap X_0 \subseteq V = X_0 \cap V \cap (X \setminus E)
+                V \cap X_0 \subseteq X_0 \cap V \cap (X \setminus E)
             \]
             となる.
-            このとき, (3)より, $v = V \cap (X \setminus E)$となるので,
-            $V \subseteq X \setminus$, つまり, $V \cap E = \emptyset$が成り立つ.
+            逆は明らかに成り立つので,
+            (3)より, $V = V \cap (X \setminus E)$となるので,
+            $V \subseteq X \setminus E$, つまり, $V \cap E = \emptyset$が成り立つ.
             \item [i) $\Rightarrow$ ii)]
             $V(I) \setminus V(J) \neq \emptyset$のとき,
             $(V(I) \setminus V(J)) \cap \Max{A} = \emptyset$であることを示す.
@@ -951,7 +1006,7 @@
             \]
             となるので, $a \in  \bigcap_{\mathfrak{q} \supsetneq \mathfrak{p}} \mathfrak{q} \setminus \mathfrak{p}$とすれば,
             \[
-                \set{\mathfrak{q}} \cap X_a \cap V(\mathfrak{p})
+               X_a \cap V(\mathfrak{p})
             \]
             は一点からなる局所閉集合になる.
             しかし, iii)より, これは閉集合なので, $\mathfrak{p}$が極大イデアルになって矛盾.
@@ -1118,5 +1173,51 @@
             &\Longleftrightarrow v(y) \geqslant v(x) \quad \mbox{or} \quad v(x) \geqslant v(y)
         \end{align*}
         となるので, $\geqslant$の全順序律から, これは常に成り立つ.
+    \end{problem}
+
+    \color{red}
+    次は, $\set{x \in K^\ast \mid v(x) \geqslant 0} \cup \set{0}$が付値環になることを示す.
+    \color{black}
+
+    \begin{problem}
+        $A = \set{x \in K^\ast \mid v(x) \geqslant 0} \cup \set{0}$とする.
+        $0 \in A$であって, $v(1) = 0 \geqslant 0$なので, $1 \in A$.
+        また, (2)より, 加法に関して閉じており,
+        $K$は可換群なので, 特に$A$は加法に関して可換.
+        次に, (1)より, 積に関しても閉じており,
+        同様に$K$の積に関する可換性から, $A$は積に関して可換.
+        $K$における加法と積の結合性と分配律から, $A$も加法と積の結合性と分配律をもつ.
+        また, $x \in A$とすれば, (1)より,
+        \[
+            v(x) = v(-1) + v(-x) = v(-x)
+        \]
+        なので, 加法についての逆元も存在する.
+        以上より, $A$は$K$の部分環である.
+
+        $A$は$K$の部分環なので特に整域であり,
+        $x \in K^\ast$について,
+        \[
+            0 = v(1) = v(x^{-1}) + v(x)
+        \]
+        なので,
+        $v(x) \geqslant 0$かつ$v(x^{-1}) \geqslant 0$
+        が成り立つ.
+        ゆえに, $x \in A$または$x^{-1} \in A$となって, $A$が$K$の付値環であることが従う.
+    \end{problem}
+
+    \begin{problem}
+        $\triangle = -v(A \setminus \mathfrak{p}) \cup v(A \setminus \mathfrak{p})$とおく.
+        $\triangle$が$\Gamma$の部分群であることを示す.
+        他は明らかなので, $a, b \in \triangle$が$a \in -v(A \setminus \mathfrak{p})$かつ$b \in -v(A \setminus \mathfrak{p})$の場合
+        に$a + b \in \triangle$であることを示せば十分である.
+        $a = -v(x)$, $b = v(y)$とする.
+        \[
+            a + b = -v(x) + v(y) = v(yx^{-1})
+        \]
+        であって,
+
+        まず, $\triangle$が$\Gamma$で孤立していることを示す.
+        $0 \leq \beta \leq \alpha$であって, $\alpha \in \triangle$と仮定する.
+
     \end{problem}
 \end{document}

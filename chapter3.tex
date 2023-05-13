@@ -1,0 +1,107 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{preamble}
+
+\begin{document}
+    \setcounter{BaseCounter}{17}
+    \begin{problem}
+        \begin{description}
+            \item[(i) $\Rightarrow$ (ii)]
+                (3.6)より, すぐに従う.
+            \item[(ii) $\Rightarrow$ (iii)]
+                任意の$\mathfrak{m}$に対して, ある$\mathfrak{n} \in \Spec{B}$が存在して,
+                $f^\ast: \Spec{B} \to \Spec{A}$とすれば,
+                $f^\ast(\mathfrak{n}) = \mathfrak{m}$となる.
+                また, $f$が全射であることから,
+                \[
+                    \mathfrak{m}^e = f(\mathfrak{m})B = f(f^\ast(\mathfrak{m}))B = f(f^{-1}(\mathfrak{m}))B = \mathfrak{n}B = \mathfrak{n}
+                \]
+                となるので, $\mathfrak{m} \neq (1)$が成り立つ.
+            \item[(iii) $\Rightarrow$ (iv)]
+                $x \in M \setminus \set{0}$とする.
+                $M' = Ax$とすれば,
+                \[
+                    0 \longrightarrow M' \longrightarrow M
+                \]
+                が完全列であって, $B$が平坦であることから,
+                \[
+                    0 \longrightarrow M' \otimes_A B \longrightarrow M \otimes_A B
+                \]
+                も完全となる.
+                ゆえに, $M' \otimes_A B \neq 0$を示せば十分である.
+                $f: A \to Ax$を自然なものとすれば, $A/\ker{f} \cong M'$となる.
+                ここで, $\ker{f} \neq A$より, ある$\mathfrak{m} \in \Max{A}$が存在して,
+                $A \to B$から$A/\mathfrak{m} \to B/\mathfrak{m}^e$が導かれる.
+                このとき,
+                \[
+                    M' \otimes_A B = A/\mathfrak{m} \otimes_A B = B/\mathfrak{m}B = B/\mathfrak{m}^e
+                \]
+                となる.
+                (iii)より, $\mathfrak{m}^c \neq (1)$なので,
+                $M'_B = M' \otimes_A B \neq 0$が成り立つ.
+            \item[(iv) $\Rightarrow$ (v)]
+            $f: M \ni x \to 1 \otimes x \in M_B$として, $M' := \ker{f}$とすれば,
+            \[
+                0 \longrightarrow M' \longrightarrow M \longrightarrow M_B
+            \]
+            が完全になる.
+            $B$が平坦であることから,
+            \[
+                0 \longrightarrow M' \otimes_A B \longrightarrow M \otimes_A B \longrightarrow M_B \otimes_A B
+            \]
+            は完全列である.
+            さらに, $M \otimes_A B$は$B$-加群であって, 射による元の対応も2.13の条件を満たすので,
+            $M_B \to M_B \otimes_A B$は単射である.
+            ゆえに, $M'\otimes_A B = 0$となるが, (iv)より, $M' = \ker{f} = 0$となるので, $f$は単射である.
+        \item[(v) $\Rightarrow$ (i)]
+            $\mathfrak{a}$を$A$の任意のイデアルとする.
+            $M = A/\mathfrak{a}$とすれば, (v)より, $A/\mathfrak{a} = M \to M \otimes_A B = B/\mathfrak{a}^e$は単射なので,
+            $\mathfrak{a}^{ec} \subseteq \mathfrak{a}$が成り立つ.
+            逆は(1.17)より, 自明に成り立つ.
+        \end{description}
+    \end{problem}
+    \begin{problem}
+        $M \to N$を単射とする.
+        $g$は忠実平坦なので,
+        \[
+            \begin{tikzcd}
+                0 \arrow[r] & M_B  \arrow[d] \arrow[r] & M_B \otimes_B C \arrow[r]\arrow[d] & \coker(M_B \to M_B \otimes_B C) \arrow[d] \arrow[r] & 0 \\
+                0 \arrow[r] &  N_B \arrow[r] & N_B \otimes_B C\arrow[r] & \coker(N_B \to N_B \otimes_B C) \arrow[r] & 0
+            \end{tikzcd}
+        \]
+        は各行が完全な可換図式である.
+        また, $M_B \otimes_B C = M \otimes_A C$であることと, $g\circ f$が平坦であることから,
+        $M_B \otimes_B C \to N_B \otimes_B C$は単射である.
+        ゆえに, 上の図式に対して蛇の補題を使えば, $0 \to M_B \to N_B$は完全になり,
+        これは$f$が平坦であることを示している.
+    \end{problem}
+    \begin{problem}
+        (3.10)より, $B_\mathfrak{p}$は平坦$A_\mathfrak{p}$加群であって,
+        $f$から自然に環の射$A_\mathfrak{p} \ni a/s \mapsto f(a)/s \in B_\mathfrak{p}$が得られる.
+        また, $B_\mathfrak{q}$は$B_\mathfrak{p}$の局所化なので, 3.3より, 平坦$A_\mathfrak{p}$加群であり,
+        自然な射$B_\mathfrak{p} \ni b/s \mapsto b/s \in B_\mathfrak{q}$が存在するので,
+        環の射$A_\mathfrak{p} \to B_\mathfrak{q}$が得られる.
+        この射により, 次の図式は可換図式になる.
+        \[
+            \begin{tikzcd}
+                A_\mathfrak{p} \arrow[r]\arrow[d] & B_\mathfrak{q}  \arrow[d] \\
+                A \arrow[r] &  B
+            \end{tikzcd}
+        \]
+        したがって,
+        \[
+            \begin{tikzcd}
+                \Spec{A_\mathfrak{p}}  & \arrow[l]\Spec{B_\mathfrak{q}} \\
+                \Spec{A} \arrow[u] &  \arrow[l]\Spec{B} \arrow[u]
+            \end{tikzcd}
+        \]
+        も可換であり, これより, $\Spec{A_\mathfrak{p}}\to \Spec{B_\mathfrak{q}}$が
+        $f^\ast$の制限として得られる.
+        あとは, $g:A_\mathfrak{p} \to B_\mathfrak{q}$が忠実平坦であることを示せば十分である.
+        $A_\mathfrak{p}$の極大イデアルは$\mathfrak{p}A_\mathfrak{p}$であって,
+        $\mathfrak{p} = f^{-1}(\mathfrak{q})$なので,
+        $g(\mathfrak{p}A_\mathfrak{p}) \subseteq \mathfrak{q}B_\mathfrak{q}$が成り立つ.
+        したがって, $g$は忠実平坦であり,3.16より,
+        $\Spec{B_\mathfrak{q}} \to \Spec{A_\mathfrak{p}}$は全射になる.
+    \end{problem}
+\end{document}
