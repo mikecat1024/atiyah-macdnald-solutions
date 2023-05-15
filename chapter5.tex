@@ -1218,6 +1218,97 @@
 
         まず, $\triangle$が$\Gamma$で孤立していることを示す.
         $0 \leq \beta \leq \alpha$であって, $\alpha \in \triangle$と仮定する.
+    \end{problem}
+
+    \begin{problem}
 
     \end{problem}
+
+    \begin{problem}
+        $f$によって$B$は$A$加群であって, $g$が代数準同型であることに注意すれば,
+        任意の$a \in A$に対して,
+        \[
+            g(f(a))= g(f(a)f(1)) = g(a\cdot f(1)) = g(a\cdot 1) =ag(1) = a
+        \]
+        となるので, $A \subseteq g(B)$が成り立つ.
+        $g: B \to K$が存在するので, $B \neq 0$であり, $g(B) \neq 0$.
+        ゆえに極大イデアル$\mathfrak{n} \in \Spec{g(B)}$が存在し,
+        $g(B) \cong B/\ker{g}$であること,剰余環におけるイデアルの対応関係により,
+        $g^\ast(\mathfrak{n}) \in \Max{B}$である.
+        さらに, $f^\ast$は閉写像なので, $\mathfrak{m} := f^\ast \circ g^\ast(\mathfrak{n}) \in \Spec{A}$は極大イデアルである.
+        ここで, $A$が付値環であることから, 特に局所環なので, $f^{\ast}(\mathfrak{n})$
+        は$A$の非単元全体であり, $A_\mathfrak{m} = A$が成り立つ.
+        $g \circ f$によって, $A \subseteq g(B)$とみなし, $g(B)$が整域であることに注意すれば,
+        \[
+            A_\mathfrak{m} = A \longrightarrow g(B) \longrightarrow g(B)_\mathfrak{n}
+        \]
+        はすべて単射になるので, $A_\mathfrak{m} \subseteq g(B)_\mathfrak{n}$とみなせる.
+        このとき, $g(B)$において,
+        \[
+            \mathfrak{m} \subseteq \mathfrak{m}^e = \mathfrak{n}^{ce} \subseteq \mathfrak{n}
+        \]
+        となるので, 局所化によるイデアルの対応関係から, $g(B)_\mathfrak{n}$においても,
+        $\mathfrak{m} \subseteq \mathfrak{n}$が成り立つ.
+        これらより, $g(B)_\mathfrak{n}$は$A_\mathfrak{m} = A$を支配している.
+        しかし, $A$は付値環であることと, 5.27より, $A = g(B)_\mathfrak{n}$が成り立つ.
+        また, 再び$g(B)$が整域であることから, $g(B) \subseteq g(B)_\mathfrak{n} = A$
+        となるので, $g(B) = A$が示された.
+    \end{problem}
+
+    \begin{note}
+        $A \subseteq B$を環の拡大
+        $\mathfrak{q} \in \Spec{A}$, $\mathfrak{p}:= \mathfrak{q} \cap A \in \Spec{A}$
+        としたとき,
+        $A_\mathfrak{p} \subseteq B_\mathfrak{q}$とは限らない.
+        実際, $A = k[X]$, $B = k[X,Y]/(XY)$, $\mathfrak{q} = XB$とすれば,
+        $\mathfrak{p} = XA$であって,
+        $X/1 \in A_\mathfrak{p}$は
+        $B_\mathfrak{q}$において, $X/1 = XY/Y = 0/1$となる.
+    \end{note}
+
+    \begin{problem}
+        $k(B)$を$B$の商体とする.
+        また, $A'$を$f(A) \subseteq A'$となるような$k(B)$の付値環とする.
+        このとき, (5.22)より, $B \subseteq A'$を示せば十分である.
+        $A'$は$A$代数なので, 仮定より,
+        \[
+            \Spec{B \otimes_A A'} \longrightarrow \Spec{A\otimes_A A'} = \Spec{A'}
+        \]
+        は閉であり,
+        5.34における, $A,B,K,f$をそれぞれ, $A\otimes_A A'$, $B\otimes_A A'$,$k(B)$, $f\otimes 1$とすれば,
+        これらは5.34の条件を満たす.
+        $g: B\otimes_A A' \ni b\otimes a' \mapsto ba' \to k(B)$とすれば,
+        $A$代数準同型なので, 5.34より,
+        \[
+            B \subseteq g(B \otimes_A A') =A'
+        \]
+        が成り立つ.
+        これと, (5.22)より,
+        $B \subseteq \overline{A}$が従う.
+        ただし, $\overline{A}$は$A$の整閉包である.
+        したがって, $f$は整である.
+
+        次に, $B$が整域でない場合, $B$が有限個の極小素イデアル$\mathfrak{p}_1, \cdots, \mathfrak{p}_n$
+        を持つと仮定する.
+        まず, $B \to B/\mathfrak{p}_i$は全射なので, 特に整である.
+        また, 整なる射の合成はまた整なので, $A \to B/\mathfrak{p}_i$は整である.
+        さらに, 5.6より, $A \to \prod_{i} B/\mathfrak{p}_i \cong B/\sqrt{0}$は整である.
+        このとき, 任意の$b \in B$に対して, $\overline{b}$で$B/\sqrt{0}$への像を表すことにし, 
+        $f: A \to B$, $g: A \to B/\sqrt{B}$とすれば, 
+        ある$\overline{\phi} \in g(A)[X]$が存在して, $\overline{\phi}(b) = 0 \in B/\sqrt{0}$となる.
+        ここで, $\overline{\phi}$を$\phi \in f(X)[X]$とみれば, ある$m$が存在して, $\phi(b)^m = 0 \in B$となる.
+        また, $\phi$はmonicなので, $\phi^m$もmonicとなり, $f$が整であることが従う.
+    \end{problem}
+
+    \begin{note}
+        $f: A \to B$, $g: B \to C$として, 
+        $g\circ f$と$g$がintegralの場合でも, 一般に$f$はintegralとは限らない.
+        実際, $A = k[X]$, $B = k[X,Y]$, $C = k[X]$として,
+        $f$を包含写像, $g$を$Y = 0$とするような写像とすれば, 
+        $g\circ f$, $g$は全射なので整であるが, $f$は明らかに整ではない.
+    \end{note}
+    \begin{note}
+        これを無限個にすると偽か？
+    \end{note}
+
 \end{document}
