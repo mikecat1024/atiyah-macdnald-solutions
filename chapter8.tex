@@ -1,0 +1,123 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{preamble}
+
+\begin{document}
+    \stepcounter{BaseCounter}
+    \begin{problem}
+        \begin{description}
+            \item[(i) $\Rightarrow$(ii)]
+                (8.1)と(8.3)より, $A$の素イデアルは有限個であり, すべて極大イデアルである.
+                ゆえに, $\Spec{A}$はすべての点が閉集合な有限集合なので, 離散空間である.
+            \item[(ii) $\Rightarrow$ (iii)]
+                明らか.
+            \item[(iii) $\Rightarrow$ (i)]
+                $\Spec{A}$の任意の一点集合は閉なので, $A$の任意の素イデアルは極大イデアルである.
+                ゆえに, $\dim{A} = 0$であり, $A$はNoetherianなので, (8.5)より, (i)が成り立つ.
+        \end{description}
+    \end{problem}
+
+    \begin{note}
+        $\dima{A} = 0$かつNotherianでない例は$\mathbb{Q}[X_1, \dots, ]/(X_iX_j)$.
+    \end{note}
+
+    \begin{problem}
+        \begin{description}
+            \item[(i) $\Rightarrow$ (ii)] (8.7)より, Artin環は有限個のArtin局所環R$A_i$の直積で表せる.
+            $A$が有限生成$k$代数であることから, $A_i$も有限生成$k$代数である.
+            $A_i$の極大イデアルを$\mathfrak{m}_i$とすれば, $A_i/\mathfrak{m}_i$
+            は有限生成$k$代数であって, さらに体なので, (5.24)より,
+            $A_i/\mathfrak{m}_i$は$k$の有限次拡大である.
+            このとき, 準同型$k \to A_i \to \End(A_i/\mathfrak{m}_i)$が存在するので, $k$線形空間であり,
+            $A_i/\mathfrak{m}_i$は有限次元$k$線形空間となる.
+            さらに, $A_i$は特にArtin環なので, \color{red}7.18\color{black}より,
+            $A_i$加群として有限の長さをもつ.
+            つまり, 次のようなイデアル$I_{i,j} \subseteq A_i$イデアルの列
+            \[
+                0 = I_{i,0} \subseteq I_{i,1} \subseteq \cdots \subseteq I_{i,n_i} = A
+            \]
+            であって, $I_{i,j+1}/I_{i,j} \cong A_i/\mathfrak{p}$を満たすものが存在する.
+            ただし, $\mathfrak{p} \in \Spec{A_i}$である.
+            ここで, $A_i$がArtin局所環であることから, $\Spec{A_i}  = \set{\mathfrak{m}_i}$となるので,
+            $I_{i, j+1}/I_{i,j} = A_i/\mathfrak{m_i}$である.
+            また, $I_{i,j}$は$k$線形空間なので, 上の列は$k$線形空間としての組成列である.
+            したがって, $A_i$は$k$線形空間としての組成列をもつ.
+            これと, 6.10より, $A_i$は有限次元$k$線形空間である.
+            最後に, 有限次元$k$線形空間の直積は有限次元$k$線形空間なので, $A$も有限次元$k$線形空間である.
+            \item [(ii) $\Rightarrow$ (i)]
+            $A$は特に有限次元$k$線形空間なので, 特に$k$線形空間として有限の長さをもつ.
+            さらに, $A$のイデアルが特に$k$線形空間であることに注意すれば, $A$は降鎖条件を満たすので, $A$はArtin環である.
+         \end{description}
+    \end{problem}
+
+    \begin{problem}
+        \begin{description}
+            \item[(i) $\Rightarrow$ (iii)]
+                $B$が有限生成$A$加群なので, $B = \sum_{i = 1}^n Ab_i$と表せる.
+                任意の$k\otimes b \in k(\mathfrak{p}) \otimes_A B$に対して,
+                ある$a_i \in A$が存在して,
+                \begin{align*}
+                    k \otimes  b = k\otimes \sum_{i = 1}^n a_ib_i = \sum_{i = 1}^n k\otimes a_ib_i = \sum_{i = 1}^n a_ik \otimes b_i = \sum_{i = 1}^n a_ik(1\otimes b_i)
+                \end{align*}
+                となるので, $k\otimes_A B$は$k(\mathfrak{p})$加群として, $1\otimes b_i$で生成される.
+                したがって, $k \otimes_A B$は有限$k(\mathfrak{p})$代数である.
+
+            \item [(iii) $\Rightarrow$ (ii)]
+                8.3より, $k(\mathfrak{p})\otimes_A B$はArtin環である.
+                また, 8.2より, $\Spec(k(\mathfrak{p}) \otimes_A B)$は離散空間であり,
+                3.21より, ${f^\ast}^{-1}(\mathfrak{p}) = \Spec{(k(\mathfrak{p}) \otimes_A B)}$
+                となるので, 任意の$\mathfrak{p} \in \Spec{A}$に対して, $f^\ast$の$\mathfrak{p}$上
+                のファイバーは$\Spec{B}$の離散部分空間である.
+            \item [(iii) $\Rightarrow$ (iv)]
+                (iii) $\Rightarrow$ (ii)と全く同様に成り立つ.
+            \item [(ii) $\Rightarrow$ (iii)]
+                $k(\mathfrak{p}) \otimes_A B$は有限生成$k(\mathfrak{p})$代数である.
+                実際, $B$が有限生成$A$代数であることから, 全射$A[X_1, \dots, X_n] \to B$が存在し, テンソル積は
+                全射を保存するので,
+                \[
+                    k(\mathfrak{p})[X_1, \dots, X_n] = k(\mathfrak{p}) \otimes_A (A[X_1, \dots, X_n]) \longrightarrow k(\mathfrak{p}) \otimes_A B
+                \]
+                なる全射が存在する.
+                また, $k(\mathfrak{p})$がNotherianなので, (7.7)より, $B\otimes_A k(\mathfrak{p})$もNotherianになり,
+                8.2より, $k(\mathfrak{p})\otimes_A B$はArtin環である.
+                さらに, 8.3より, $k(\mathfrak{p}) \otimes_A B$は有限$k(\mathfrak{p})$は有限$k(\mathfrak{p})$代数である.
+        \end{description}
+
+        $A = \mathfrak{Q}$, $\mathfrak{Q}[x_1, \dots]$ ($x_i$は代数的数)とすれば, 反例になる.
+    \end{problem}
+
+
+    \begin{problem}
+        \color{red}
+            有界の定義が謎ですねえ。
+        \color{black}
+    \end{problem}
+
+
+    \begin{problem}
+        局所化と剰余について, Noether性は保存され, イデアルの対応関係が存在することと,
+        準素イデアルの準同型による逆像は準素イデアルなので,
+        $B = A_\mathfrak{p}/\mathfrak{q}A_\mathfrak{p}$
+        について考える.
+        $\mathfrak{p}' \in \Spec{B}$とすれば, $A$において,
+        \[
+            \mathfrak{p}' = \sqrt{\mathfrak{p}'} \supseteq \sqrt{\mathfrak{q}} = \mathfrak{p}
+        \]
+        が成り立つ.
+        これを$B$において考えれば, $\Spec{B} = \set{\mathfrak{p}}$が成り立つ.
+        ゆえに, $\dim{B} = 0$であり, 特に$B$はArtin環である.
+        さらに, 一般の真なるイデアル$I\subseteq B$についても, 同様にして, $\sqrt{I} = \mathfrak{p}$が成り立つ.
+        つまり, $B$の任意のイデアルは$\mathfrak{p}$-準素イデアルである.
+        $B$がArtinであることから, $B$の組成列は有限である.
+        これと, 準素イデアルの対応関係が存在することから, $\mathfrak{q}$から$\mathfrak{p}$への準素イデアルの鎖は有限かつ有界である.
+    \end{problem}
+
+    \begin{note}
+        $A = k[X_1, \dots, ]$とすれば,
+        \[
+            0 \subsetneq (X_1) \subsetneq (X_1, X_2) \subsetneq \cdots
+        \]
+        となるので, 長さが無限の素イデアルの列をもつ.
+    \end{note}
+
+\end{document}

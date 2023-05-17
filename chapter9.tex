@@ -1,0 +1,274 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{preamble}
+
+\begin{document}
+    \begin{problem}
+        $S^{-1}A$はNoetherian整域であり,
+        \[
+            \dim {S^{-1}A} \leq \dim{A} = 1
+        \]
+        なので, $\dim{S^{-1}A} = 0$または$\dim{S^{-1}A} = 1$である.
+        \begin{enumerate}
+            \item $\dim{S^{-1}A} = 0$のとき, $S^{-1}A$は体であって, $A \subseteq S^{-1}A \subseteq K$なので,
+            $K$が$A$を含む最小の体であることから, $S^{-1}A = K$である.
+            \item $\dim{S^{-1}A} = 1$のとき, $S^{-1}A$が整閉であることを示せば十分である.
+            ここで, $A$は整閉なので, (5.12)と$S^{-1}A$の商体が$K$であることから, $S^{-1}A$は整閉である.
+        \end{enumerate}
+        以上より, $S^{-1}A$はデデキント整域または$A$の商体である.
+
+        $H_A = H$, $H_{S^{^1}A}= H'$とする.
+        まず, $I_A \to I_{S^{-1}A}$が全射であることを示す.
+        $M_{S^{-1}A} \in I_{S^{-1}A}$について, $M_{S^{^1}A}$は$S^{-1}A$であって, $A$は特にNoetherianなので,
+        $S^{-1}A$もNoetherianであり, ゆえに, $M_{S^{-1}A}$は有限生成である.
+        したがって, ある$m_i/s_i \in M_{S^{-1}A}$が存在して,
+        \[
+            M_{S^{-1}A} = \sum_{i = 1}^n (S^{-1}A)(m_i/s_i)
+        \]
+        と表せる.
+        ここで, $(S^{-1}A)(m_i/s_i) = (S^{-1}A)(m_i/1)$であることに注意する.
+        これは$Am_i \in I_A$の拡大である.
+        これより, $M = \sum_{i = 1}^n Am_i \in I_A$の拡大は$M_{S^{-1}A} \in I_{S^{-1}A}$となる.
+        したがって, イデアルの拡大によって, $I_A \to I_{S^{-1}A}$は全射である.
+        さらに, $N,M \in I_A$に対して,
+        \[
+            S^{-1}(NM) = (S^{-1}N)(S^{-1}M)
+        \]
+        も成り立つ.
+        以上より, イデアルの拡大によって, 全射群準同型$I_A \to I_{S^{-1}A}$が存在する.
+        また, $I_A$における単項分数イデアルはイデアルの拡大によって, $I_{S^{-1}A}$の単項分数イデアル
+        に移るので, 全射群準同型$H_{A} \to H_{S^{-1}A}$が誘導される.
+    \end{problem}
+
+    \begin{problem}
+        $c(fg) \subseteq c(f)c(g)$は常に成り立つので, 逆を示せばよい.
+        つまり, 任意の$\mathfrak{m} \in \Max{A}$について, $c(fg)_\mathfrak{m} = c(f)_\mathfrak{m}c(g)_\mathfrak{m}$
+        を示せばよい.
+        \begin{align*}
+            f(X) &= \sum_{i = 0}^n a_i X^i & g(X) &= \sum_{i = 0}^m b_iX^i
+        \end{align*}
+        とする.
+        $A_\mathfrak{m}$は次数$1$のNoetherian局所整域かつ, DVRなので, (9.2)より,
+        ある$x \in A_\mathfrak{m}$が存在して, すべての$a_i, b_j$について, ある$k_{f,i}, k_{g, j}$が存在して,
+        $(a_i)_\mathfrak{m} = (x^{k_{f,i}})$,
+        $(b_j)_\mathfrak{m} = (x^{k_{g, j}})$が成り立つ.
+        ゆえに, $k_f = \min_{i}{k_{f,i}}$, $k_g = \min_{j}{k_{g, j}}$
+        とすれば,
+        \begin{align*}
+            c(f)_\mathfrak{m} = (a_0, \dots, a_n)_\mathfrak{m} = (x^{k_f})\\
+            c(g)_\mathfrak{m} = (b_0, \dots, b_m)_\mathfrak{m} = (x^{k_g})
+        \end{align*}
+        が成り立つ.
+        このとき,
+        \[
+            (a_ib_j)_\mathfrak{m} = (a_i)_\mathfrak{m}(b_j)_\mathfrak{m} = (x^{k_{f,i} + k_{g,j}})
+        \]
+        となるので,
+         \[
+            c(fg)_\mathfrak{f} = (x^{\min_{i,j}{k_{f,i}, k_{g,j}}}) = (x^{k_f + k_g})= c(f)_\mathfrak{m}c(g)_\mathfrak{f}
+        \]
+        が従う.
+        これより, $c(fg) = c(f)c(g)$が示された.
+    \end{problem}
+
+    \begin{note}
+        $A = (k[X, Y])[Z]$とし, $f = X$, $g = Y$と定めれば,
+        $c(fg) = (XY) \neq (X)(Y) = c(f)c(g)$となる.
+    \end{note}
+
+    \begin{problem}
+        $A$を体ではない付値環とする.
+        \begin{description}
+            \item[\rm Noetherian $\Rightarrow$ DVR]
+                $A$がNoetherianであると仮定する.
+                5.28より, $A$のイデアルは全順序であることと, Noetherian環のイデアルは有限生成であることから,
+                $A$はPIDである.
+                付値環が局所環であることに注意すれば,
+                $A$はNoetherian局所整域なので, $\dim{A} = 1$を示せば, 9.2より, $A$が離散付値環であることが従う.
+
+                $\mathfrak{m}$を$A$の極大イデアルとする.
+                $\mathfrak{p} \in \Spec{A}$を$\mathfrak{p} \subseteq \mathfrak{m}$となるようなものとしてとる.
+                $A$がPIDであることから, $\mathfrak{p} = (p), \mathfrak{m} = (m)$となり,
+                したがって, ある$a \in A$が存在して, $p = am$と表せる.
+                このとき, $am \in \mathfrak{p}$なので, $a \in \mathfrak{p}$または$m \in \mathfrak{p}$が成り立つ.
+                後者の場合は$\mathfrak{p} = \mathfrak{m}$となる.
+                全射の場合, ある$b \in A$が存在して, $a = pb$となるので,
+                \[
+                    p = am = pbm
+                \]
+                より, $p(1-bm) = 0$が成り立つ.
+                しかし, $m$は単元でないので, $p = 0$.
+                つまり, $\mathfrak{p} = 0$となるので, $\dim{A} = 1$となる.
+                したがって, 9.2より, $A$は離散付値環である.
+            \item[\rm DVR $\Rightarrow$ Noetherian]
+                $\mathfrak{a}$を$A$の任意のイデアルとする.
+                $v(0) = \infty$としておくと,
+                任意の$x \in A$に対して, $v(x) \leq 0$となるので,
+                $k = \min\set{v(x) \mid x\in \mathfrak{a}}$が存在する.
+                $v(x_k) = k$として, $\mathfrak{a}$を$\mathfrak{a}_k$と表す.
+                このとき, 任意の$x \in \mathfrak{a}_k$に対して,
+                $v(x)-v(x_k) \leq 0$なので, $xx_k^{-1} \in A$が成り立つ.
+                ゆえに,  $x = xx_k^{-1}x_k \in (x_k)$となるので, $\mathfrak{a}_k \subseteq (x_k)$.
+                逆は明らかに成り立つので, $A$はPIDであり, 特に$A$はNoetherianである.
+        \end{description}
+    \end{problem}
+
+    \begin{note}
+        $k[X, Y]$は次元が$2$なので, DVRではないが, Notherianである.
+    \end{note}
+
+    \begin{problem}
+        $\mathfrak{a}$を$A$のイデアルとする.
+        $a \in \mathfrak{a}$に対して, ある$k$が存在して, $\mathfrak{m}^k \not subseteq (a)$かつ
+        $\mathfrak{m}^{k+1} \subseteq (a)$
+        が成り立つ.
+        $m^{k+1} = ra$とする.
+        $r$が単元でないと仮定すると, $A$が局所環であることから, $r \in \mathfrak{m}$であり,
+        ある$l \in A$が存在して, $r = lm$となる.
+        このとき,
+        \[
+            m^{k+1} = ra = lma
+        \]
+        より, $m(m^k-la) = 0$となる.
+        $A$が整域であることから, $m^k = la$が成り立つが, これは$\mathfrak{m}^k \not subseteq (a)$に反する.
+        したがって, $r$は単元であり, $(a) = (m^{k+1})$が成り立つ.
+        これより, $A$はNoetherianである.
+
+        次に, $\mathfrak{p} \subseteq \mathfrak{m}$とすれば, 任意の$p \in \mathfrak{p}$に対して,
+        ある$q$が存在して, $qm = p \in \mathfrak{p}$となる.
+        ここで, $m \in \mathfrak{p}$ならば, $\mathfrak{p} = \mathfrak{m}$であり,
+        $q \in \mathfrak{p} \subseteq \mathfrak{m}$ならば,
+        ある$r$が存在して, $rm = q$となる.
+        このとき,
+        \[
+            p = qm = rm^2 = \cdots
+        \]
+        と続けることができるので, $q \in \bigcap_{k} \mathfrak{m}^k = 0$となる.
+        したがって, $\dim{A} = 1$が成り立つ.
+
+        これらと(9.2)より, $A$はDVRである.
+    \end{problem}
+
+    \begin{problem}
+        3.13と7.17より, 任意の極大イデアル$\mathfrak{A}$に対して,
+        $M_\mathfrak{m}$が自由加群であることと, ねじれなしなことが同値であることを示せばよいが,
+        $A$がデデキント整域であることから, $A_\mathfrak{m}$はDVRであり,
+        特にPIDなので, これは成り立つ.
+    \end{problem}
+
+    \begin{note}
+        平坦ならばねじれなしは常に成り立つ.
+        $k[X,Y]$上の加群$(X,Y)$はねじれなしであるが, 平坦ではない.
+        実際, $\phi: k[X, Y]/(X) \to k[X,Y]/(X)$を$Y$をかける写像とすれば,
+        これは明らかに単射であり,
+        $k[X,Y]/(X) \otimes (X,Y) = (X,Y)/X(X,Y)$
+        中で$1 \otimes X$は非零であるが,
+        $(\phi \otimes 1)(1\otimes X) = Y\otimes X$となり, これは$(X,Y)/X(X,Y)$において, 零になる.
+        つまり, 単射を保存しないので, 特に$(X,Y)$は平坦ではない.
+    \end{note}
+
+    \begin{problem}
+        任意の$\mathfrak{p} \in \Spec{A} \setminus \set{0}$について, $A_\mathfrak{p}$はDVRなので, 特にPIDである.
+        さらに, $\dim{A_\mathfrak{p}}=1$であって, Notherian局所整域なので, (9.2)より,
+        すべての非自明なイデアルは$\mathfrak{p}$のべきで表せる.
+        ゆえに, $M_\mathfrak{p} \neq 0$ならば,
+        PID上の有限生成加群の構造定理より, ある$k_i$が存在して,
+        \[
+            M_\mathfrak{p} = \bigoplus_{i = 1}^n A_\mathfrak{p}/\mathfrak{p}^{k_i}A_\mathfrak{p}
+        \]
+        が成り立つ.
+        ここで, $T(M) = M$より, $k_i \geq 1$であることに注意する.
+        素イデアル$\mathfrak{q} \in \Spec{A}$を$\mathfrak{q} \subseteq \mathfrak{p}^{k_i}$を満たすものと仮定すれば,
+        $\mathfrak{p} \subseteq \mathfrak{q}$となるので,
+        $A$がデデキント整域であることから, $\mathfrak{p} = \mathfrak{q}$が成り立つ.
+        したがって, $A/\mathfrak{p}^{k_i}$は$\mathfrak{p}$を極大イデアルとする局所環である.
+        これより,
+        \[
+            M_\mathfrak{p} = \bigoplus_{i = 1}^n A/\mathfrak{p}^{k_i}
+        \]
+        となる.
+
+        ここで, $\Ann{M} \not \subseteq \mathfrak{p}$ならば, $M_\mathfrak{p} = 0$であることに注意する.
+        $\Ann{M} \subseteq \mathfrak{p}$なる素イデアルが有限個であることを示す.
+        $M$が有限生成であることから, $M = \sum_{i = 1}^k Am_i$と表せるが,
+        $T(M) = M$より, $\Ann(m_i) \neq 0$である.
+        したがって, (9.4)より, $\Ann(m_i) = \prod_{i}\mathfrak{p}$と表せる.
+        ここで,
+        \[
+            \Ann{M} = \sum \Ann(m_i) = \sum \prod \mathfrak{p}
+        \]
+        であって, ここに現れる$\mathfrak{p}$は零ではないので,
+        $\Ann{M} \neq 0$となる.
+        したがって, $\dim{A/\Ann{M}} = 0$である.
+        $A/\Ann{M}$はNotherianなので, (8.5)より, Artin環である.
+        ゆえに, (8.3)より, $A/\Ann{M}$の極大イデアルは有限個となり,
+        $\Ann{M}$を含む素イデアルは有限個であることが示された.
+
+        最後に, $M \to \bigoplus_{\mathfrak{p} \neq 0} M_\mathfrak{p}$が同型であることを示す.
+        これは局所化によって, 各$\mathfrak{p}$について同型であることがわかるので, すぐに同型であることが従う.
+    \end{problem}
+
+    \begin{problem}
+        $\mathfrak{a} \subseteq A$をイデアルとする.
+        $\mathfrak{a}$が準素イデアルならば, $A$がデデキント整域であることから,
+        素イデアルのべきで表せて,
+        $A/\mathfrak{a} = A/\mathfrak{p}^n = A_\mathfrak{p}/\mathfrak{p}^nA_\mathfrak{p}$
+        なので,  この場合はDVRなので, 特にPIDとなる.
+
+        次に, $\mathfrak{a}$が準素イデアルでない場合を考える.
+        $A$はデデキント整域なので, (9.4)より, $\mathfrak{a} = \prod_{i} \mathfrak{p}_i$
+        となり,
+        \[
+            A/\mathfrak{a} = A/\prod_{i}\mathfrak{p}_i = \prod_i A/\mathfrak{p}_i
+        \]
+        となる.
+        ここで, PIDの直積はPIDなので, 主張は成り立つ.
+
+        最後に, $A$のイデアルは高々二つの元によって生成されることを示す.
+        $\mathfrak{b} \subseteq A$が単項イデアルでないと仮定する.
+        このとき, ある$x \in \mathfrak{b} \setminus \set{0}$が存在して, $\mathfrak{b} \neq Ax$となる.
+        しかし, $(x)/\mathfrak{b}$は$A/\mathfrak{b}$のイデアルなので, 単項生成.
+        したがって, その生成元の代表元と$x$は$A$において, $\mathfrak{b}$を生成する.
+    \end{problem}
+
+    \begin{note}
+        $\mathbb{Z}[\sqrt{5}]$はデデキント整域であり, $(2, 1+\sqrt{5})$は単項イデアルではないので, PIDではない.
+    \end{note}
+
+
+    \begin{problem}
+        両方の式について, 証明は全く同じなので, 上の方について示す.
+        $\mathfrak{p} \in \Spec{A}$を任意にとる.
+        このとき, $(\mathfrak{a}\cap (\mathfrak{b} + \mathfrak{c}))_\mathfrak{p} = ((\mathfrak{a} \cap \mathfrak{b}) + (\mathfrak{a} \cap \mathfrak{c}))_\mathfrak{p}$
+        が成り立つことを示せば十分である.
+        $A$がデデキント整域であることから, $A_\mathfrak{p}$はDVRである.
+        ゆえに, ある$x\in A_\mathfrak{p}$が存在して,
+        任意の$A_\mathfrak{p}$のイデアル$\mathfrak{a}$に対して,
+        ある$n$が存在して, $\mathfrak{a} = (x^n)$が成り立つ.
+        また, 局所化と和, 局所化と共通部分はそれぞれ可換なので,
+        \begin{align*}
+            (\mathfrak{a} \cap (\mathfrak{b} + \mathfrak{c}))_\mathfrak{p}
+            &= (x^{\max(n_a, \min(n_b, n_c))})\\
+            &= (x^{\min(\max(n_1, n_b), \min(n_a, n_c))}) \\
+            &= ((x^{n_a}) \cap   (x^{n_b})) + ((x^{n_a}) \cap (x^{n_c})) \\
+            &= ((\mathfrak{a} \cap \mathfrak{b}) + (\mathfrak{a} \cap \mathfrak{c}))_\mathfrak{p}
+        \end{align*}
+        となり, 等式が従う.
+    \end{problem}
+
+
+    \begin{problem}
+       任意の$\mathfrak{p}$に対して,
+       \[
+            A_\mathfrak{p} \longrightarrow \bigoplus_{i = 1}^n A_\mathfrak{p}/\mathfrak{a}_i A_\mathfrak{p} \longrightarrow \bigoplus_{i = 1}^n  A_\mathfrak{p}/(\mathfrak{a}_i + \mathfrak{a}_j) A_\mathfrak{p}
+       \]
+       が成り立つことを示せば十分である.
+       ここで, $A_\mathfrak{p}$は特にVRなので, $i < j$ならば$\mathfrak{a}_i \supseteq \mathfrak{a}_j$としてよい.
+       このとき, $(x_1, \dots, x_n)$を$i < j$のときに$x_i-x_j \in \mathfrak{a}_i + \mathfrak{a}_j = \mathfrak{a}_i$なるものとすれば,
+       $A_\mathfrak{p}/\mathfrak{a}_iA_\mathfrak{p}$において, $x_i = x_n$なので,
+       \[
+        x_n \longmapsto (x_1, \dots, x_n)
+       \]
+       が成り立つ.
+    \end{problem}
+\end{document}
