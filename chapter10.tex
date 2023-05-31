@@ -1,0 +1,228 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{preamble}
+
+\begin{document}
+    \begin{problem}
+
+    \end{problem}
+
+    \begin{problem}
+
+    \end{problem}
+
+    $\widehat{M}$を$M$の$\mathfrak{a}$進完備化と仮定する.
+    \begin{problem}
+        $E = \bigcap_{n = 1}^\infty \mathfrak{a}^n M \subseteq M$とする.
+        このとき, Kullの定理より, ある$a \in \mathfrak{a}$が存在して,
+        $E$は$1+a$で零化される.
+        任意の極大イデアル$\mathfrak{m} \supseteq \mathfrak{a}$について,
+        $1 + a \in A\setminus \mathfrak{m}$となるので,
+        $E_\mathfrak{m} = 0$が成り立つ.
+        ゆえに, $E \subseteq \bigcap_{\mathfrak{m} \supseteq \mathfrak{a}} \ker(M \to M_\mathfrak{m})$が成り立つ.
+
+        逆に, $N = \bigcap_{\mathfrak{m} \supseteq \mathfrak{a}} \ker(M \to M_\mathfrak{m})$
+        とすれば, 任意の$\mathfrak{m} \supseteq \mathfrak{a}$に対して,
+        $N_\mathfrak{m} = 0$となるので, 3.14より,
+        $N = \mathfrak{a}N$が成り立つ.
+        これより, 任意の$n$に対して, $N = \mathfrak{a}^n N$となるので,
+        $N = \bigcap_{n = 1}^\infty \mathfrak{a}^n N$が成り立つ.
+        さらに, $N \subseteq M$であることから,
+        \[
+            N = \bigcap_{n = 1}^\infty \mathfrak{a}^n N \subseteq \bigcap_{\mathfrak{m} \supseteq \mathfrak{a}} \mathfrak{a}^nM
+        \]
+        となるので, 主張が成り立つ.
+
+        $\widehat{M} = 0$と仮定すれば,
+        \[
+            M = \ker(M \to \widehat{M}) = \bigcap_{n = 1}^\infty \mathfrak{a}^nM
+        \]
+        となるが, Kullの定理より, ある$a \in \mathfrak{a}$が存在して, $M$は$1+a$で零化されるので,
+        任意の$\mathfrak{p} \in V(\mathfrak{a})$について, $M_\mathfrak{p} = 0$が成り立つ.
+        したがって, $\supp{M} \cap V(\mathfrak{a}) = \emptyset$である.
+
+        逆に, 任意の素イデアル$\mathfrak{p} \in V(\mathfrak{a})$について,
+        $M_\mathfrak{p} = 0$と仮定する.
+        このとき, 特に
+        \[
+            M = \bigcap_{\mathfrak{m} \supseteq \mathfrak{a}} \ker(M \to M_\mathfrak{m}) = \bigcap_{n = 1}^\infty \mathfrak{a}^n M
+        \]
+        となる.
+        ゆえに, 任意の$n$について, $\mathfrak{a}M = M$が成り立つ.
+        これより,
+        \[
+            \widehat{M} = \colim M/\mathfrak{a}^nM = \colim 0 = 0
+        \]
+        となる.
+    \end{problem}
+
+    \begin{problem}
+        $x \in A$が零因子でないことは, $x$をかける写像を考えたときに
+        \[
+            0 \longrightarrow A \longrightarrow A
+        \]
+        が完全列であることと同値である.
+        また, $A$がNotherianであることから, $\widehat{A}$は平坦$A$代数なので,
+        \[
+            0 \longrightarrow \widehat{A} \otimes_A A = \widehat{A} \longrightarrow \widehat{A} \otimes_A A = \widehat{A}
+        \]
+        が完全列となる.
+        これより, $\widehat{x}$をかける写像は単射なので,
+        $\widehat{x} \in \widehat{A}$は零因子である.
+
+        \color{red}
+        反例はわからん。
+        \color{black}
+    \end{problem}
+
+    \begin{problem}
+
+    \end{problem}
+
+    \begin{problem}
+        $\mathfrak{a} \subseteq J(A)$とすれば, 任意の極大イデアル$\mathfrak{m}$に対して,
+        $\mathfrak{a} \subseteq \mathfrak{m}$
+        が成り立つ.
+        任意の$x \in A \setminus \mathfrak{m}$に対して,
+        \[
+            x + a \subseteq x + \mathfrak{m} \subseteq A  \setminus \mathfrak{m}
+        \]
+        が成り立つので, $A \setminus \mathfrak{m}$は開集合となる.
+        これより, $\mathfrak{m}$は閉集合である.
+
+        逆に$A \setminus \mathfrak{m}$が開集合と仮定すれば, 任意の$x \in A \setminus \mathfrak{m}$に対して,
+        ある$n$が存在して, $x + \mathfrak{a}-n \subseteq A \setminus \mathfrak{m}$となる.
+        これより, 任意の$a \in \mathfrak{a}$に対して, ある$m \in \mathfrak{m}$が存在して,
+        \[
+            x + a^n + m = 1
+        \]
+        となる.
+        ここで, $1-x \notin \mathfrak{m}$と仮定すれば, ある$m'$が存在して,
+        $1-x + m' = 1$となるので, $x = m' \in \mathfrak{m}$となり,
+        不合理.
+        したがって, $1-x \in \mathfrak{m}$が成り立つ.
+        これと, $x + a^n + m = 1$より, $a^n \in \mathfrak{m}$となり,
+        $\mathfrak{m}$は特に素イデアルであることから, $a \in \mathfrak{m}$が成り立つ.
+        ここで, $a$は任意だったので, $\mathfrak{a} \subseteq \mathfrak{m}$
+        となり, さらに$\mathfrak{m}$も任意だったので, $\mathfrak{a }\subseteq J(A)$となる.
+    \end{problem}
+
+    \begin{problem}
+        まず, $\widehat{A}$がZariski環であることを仮定する.
+        このとき, $\mathfrak{a} \subseteq J(A)$なので,
+        任意の極大イデアル$\mathfrak{m}$について, $\mathfrak{a} \subseteq \mathfrak{m}$が成り立つ.
+        $A$がNoetherianなので, 有限生成な$A$-加群$M$に対して, $M \to \widehat{M}$が単射であることを示せばよい.
+        これは
+        \[
+            \ker(M \to \widehat{M}) = \bigcap_{n = 1}^\infty \mathfrak{a}^nM = 0
+        \]
+        が(10.18)から従うので, 成り立つ.
+
+        逆に, $M \to \widehat{M}$が単射であると仮定すれば,
+        $\bigcap_{n = 1}^\infty \mathfrak{a}^nM = 0$となるが,
+        $M = A/\mathfrak{m}$としたとき, これは明らかに$A$-加群であって, 特に体である.
+        $\mathfrak{a} \not \subseteq \mathfrak{m}$なる極大イデアル$\mathfrak{m}$が存在すると仮定すれば,
+        ある$a \in \mathfrak{a} \setminus \mathfrak{m}$が存在して,
+        $a/1 \in A/\mathfrak{m}$は零ではない.
+        ゆえに, $\mathfrak{a}A/\mathfrak{m} = A/\mathfrak{m}$が成り立つ.
+        しかし, これは$\bigcap_{n = 1}^\infty \mathfrak{a}^nM = 0$
+        に反するので, 任意の極大イデアル$\mathfrak{m}$に対して, $\mathfrak{a} \subseteq \mathfrak{m}$が成り立ち,
+        $\mathfrak{a} \subseteq J(A)$が従う.
+    \end{problem}
+
+    \begin{problem}
+        $z_i \in B$なので, $I = (z_1, \dots, z_n)$が
+        唯一の極大イデアルであることを示せばよい.
+        そのためには, 定数項が零でない$B$の元は単元であることを示せば十分である.
+        まず, 1.5より, $n = 1$の場合に定数項が非零な$f \in C$は単元をもつ.
+        ゆえに, 帰納的にすべての$n$について, 定数項が非零な$f \in C$は単元をもつ.
+        これより, $f^{-1} \in C$であるが, これが$f \in B$のときに$f^{-1} \in B$となることを示せば十分である.
+        $f \in B$より, ある$0$の近傍$U$が存在して, $f$は$U$上で収束する.
+        ここで, 可算個以上の$x \in U$について, $f(x) = 0$となるなら,
+        Bolzano-Weierstrassの定理と一致の定理より, $U$上で$f = 0$となり, 定数項が非零であることに反する.
+        したがって, $U$において, $f$は有限個の零点をもち,
+        $f(0) \neq 0$なので, ある$0$の近傍$V$が存在して, $1/f$は$V$上で収束するので,
+        $f^{-1} \in B$が成り立つ.
+        以上より, $B$は局所環である.
+
+        \color{red}
+            完備化は大小関係を保つ？
+        \color{black}
+    \end{problem}
+
+    \begin{problem}
+        任意の$k$に対して,
+        ある$g_k, h_k \in A[X]$が存在して,
+        $g_kh_k-f \in \mathfrak{m}^k[X]$が成り立つことを示す.
+
+        $k = 1$に対しては仮定によって与えられている.
+
+        $k$の場合に存在すると仮定して, $k+1$の場合に$g_{k+1}, h_{k+1}$が存在することを示す.
+        $p: A[X] \to A/\mathfrak{m}[X]$を射影とする.
+        このとき, $p(g_k), p(h_k)$が互いに素であることから,
+        ある$\alpha_k, \beta_k \in A[X]$が存在して,
+        \[
+            p(\alpha_i)p(g_k) + p(\beta_i)p(h_k)  = p(x)^i \in A/\mathfrak{m}[X]
+        \]
+        が成り立つ.
+        ゆえに,
+        \[
+            r_i := \alpha_ig_k + \beta_ih_k - x^i \in \mathfrak{m}[X]
+        \]
+        が成り立つ.
+        これより, $m_i \in \mathfrak{m}^k$として, $g_kh_k-f = \sum_{i} m_ix^i$と
+        おけば,
+        \[
+            g_kh_k-f = \sum_{i} m_ix^i = \sum_i m_i(\alpha_ig_k+\beta_ih_k-r_i)
+        \]
+        となる.
+        ここで,
+        $g_{k+1} = g_k - \sum_{i} m_i\beta_i$, $h_{k+1} = h_k - \sum_i m_i\alpha_i$とすれば,
+        \begin{align*}
+            g_{k+1}h_{k+1} - f
+            &= g_kh_k - \sum_{i} m_i(\alpha_ig_k+\beta_ih_k) + \qty(\sum_i m_i\alpha_i)\qty(\sum_i m_i\beta_i) - f\\
+            &= -\sum_i m_ir_i + \qty(\sum_i m_i\alpha_i)\qty(\sum_i m_i\beta_i) \in \mathfrak{m}^{k+1}[X]
+        \end{align*}
+        であって, $\sum_i m_i\alpha_i, \sum_im_i\beta_i \in \mathfrak{m}^k[X]$なので,
+        $g_{k+1}, h_{k+1}$はそれぞれ$g_k, h_k$の原像である.
+        以上より,
+        任意の$k$に対して,
+        $g_kh_k -f \in \mathfrak{m}^k[X]$を満たす$g_k, h_k \in A[X]$は存在する.
+
+        $g_k, h_k$の係数からなる列を考えれば,
+        それらは$\mathfrak{m}^k$の元なので, $A$でのCauchy列である.
+        したがって, $\widehat{A} = A$に収束先をもつ.
+        それらを係数として, $g, h \in A[X]$を定義する.
+        このとき, $g, h$はモニック多項式であって,
+        \[
+            gh -f  = 0
+        \]
+        も成り立つ.
+    \end{problem}
+
+    \begin{problem}
+        \begin{enumerate}
+            \item $\overline{g}(X) = X-\alpha, \overline{h}(X) = \overline{f}/\overline{g}$とすれば,
+            Henselの補題より, ある$g, h \in A[X]$が存在して, $f = gh$となるので,
+            主張は成り立つ.
+            \item (10.4)より,
+            $\mathbb{Z}_7/7\mathbb{Z}_7 \cong \mathbb{Z}/7\mathbb{Z}$
+            であり, $X^2-2 \in \mathbb{Z}/7\mathbb{Z}[X]$が単根をもてば, (1)から主張が従うが,
+            これは$4,3 \in \mathbb{Z}/7\mathbb{Z}$を根に持つので, これは満たされる.
+            \item $A = k[\![X]\!], \mathfrak{m} = xA$とする.
+            のとき, $\overline{f} \in A/\mathfrak{m}[Y]$
+            は$a_0$を単根としてもつので,
+            (1)より, ある$y \in A$が存在して, $f(X, y) = 0$が成り立つ.
+        \end{enumerate}
+    \end{problem}
+
+    \begin{problem}
+
+    \end{problem}
+
+    \begin{problem}
+        $A \to A[X_1, \dots, X_n] \to A[\![X_1, \dots, X_n]\!]$
+        は前者が平坦であって, 後者は1.5を繰り返し使うことにより, 忠実平坦なので,
+        3.17より, $A \to A[\![X_1, \dots, X_n]\!]$は平坦射である.
+    \end{problem}
+\end{document}

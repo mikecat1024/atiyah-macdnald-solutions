@@ -1,0 +1,101 @@
+\documentclass[dvipdfmx]{jsarticle}
+
+\input{preamble}
+
+\begin{document}
+    \begin{problem}
+        \begin{align*}
+            \mbox{$P$は非特異点}
+            &\Longleftrightarrow f \notin \mathfrak{m}^2\\
+            &\Longleftrightarrow \dim \mathfrak{m}/\mathfrak{m}^2 = n-1\\
+            &\Longleftrightarrow \mbox{$A$は正則局所環}
+        \end{align*}
+        となる.
+        実際, ある極大イデアル$\mathfrak{m}_0 \in \Max{k[X_1, \dots, X_n]}$
+        が存在して, $\mathfrak{m} = \mathfrak{m}_0/(f)$
+        と表せるが, このとき,
+        \[
+            \mathfrak{m}/\mathfrak{m}^2 = (\mathfrak{m}_0/(f))/(\mathfrak{m}_0/(f))^2 =
+            (\mathfrak{m}_0/(f))/(\mathfrak{m}_0^2/\mathfrak{m}_0^2 \cap (f)) = \mathfrak{m}_0^2/\mathfrak{m}_0^2 + (f)
+        \]
+        となる.
+        Hilbertの零点定理より,
+        $\mathfrak{m}_0 = (X_1, \dots, X_n)$と仮定しても一般性は失わない.
+        このとき, $P = 0$となるので, $f(0) = 0$であり, $f \in \mathfrak{m}_0$であることに注意する.
+        $A = k[X_1, \dots, X_n]/(f)$とおく.
+        (10.18)より,
+        \[
+            n-1 = \dim{k[X_1, \dots, X_n]} - 1  = \dim A_\mathfrak{m} \leq \dim_k(\mathfrak{m}/\mathfrak{m}^2) = \dim_k \mathfrak{m}_0/\mathfrak{m}_0^2 + (f)
+        \]
+        であって,
+        $f \notin \mathfrak{m}_0^2$ならば, $\dim_k \mathfrak{m}_0/\mathfrak{m}_0^2 + (f) < \dim_k \mathfrak{m}_0/\mathfrak{m}_0^2 = n$
+        となるので, $\dim_k\mathfrak{m}_0/\mathfrak{m}_0^2 + (f) \leq n-1$が成り立つ.
+        これより, $\dim_\mathfrak{m} A_\mathfrak{m} = \dim \mathfrak{m}/\mathfrak{m}^2$となって, $A$は正則局所環となる.
+
+        逆に, $\dim_k \mathfrak{m}/\mathfrak{m}^2 = n-1$とすれば, 同様にして, $f \notin \mathfrak{m}_0^2$となるので, 従う.
+    \end{problem}
+
+    \begin{problem}
+        $\mathfrak{m}$を$k[\![T_1, \dots, T_n]\!]$の極大イデアルとする.
+        このとき, $k[\![T_1, \dots, T_n]\!]/\mathfrak{m}^n \to A/(x_1, \dots, x_n)^n$は単射であって,
+        7.16より, ある$m$が存在して,
+        \[
+            \mathfrak{m}^m \subseteq (x_1, \dots, x_n) \subseteq \mathfrak{m}
+        \]
+        が成り立つ.
+        これより, $\mathfrak{m}$進完備化と$(x_1, \dots, x_n)$進完備化は等しい.
+        これと10.2より, $k[\![T_1, \dots, T_n]\!] \to A$は単射である.
+
+        $\phi :k[\![T_1, \dots, T_n]\!] \to A$とする.
+        \[
+            \bigcap_i (x_1, \dots, x_n)^i = \phi^{-1}\qty(\bigcap_n \mathfrak{m}) = 0
+        \]
+        なので, $A$は$k[\![T_1, \dots, T_n]\!]$の$\mathfrak{m}$フィルター位相によってハウスドルフである.
+        また,
+        $G(A)$は有限生成$G(k[\![T_1, \dots, T_n]\!])$加群である.
+        実際, $k[\![T_1, \dots, T_n]\!]$がネーターであることと, (10.22)より,
+        $G_\mathfrak{m}(k[\![T_1, \dots, T_n]\!])$はNotherianである.
+        したがって, $G(A)$はNotherian加群なので, 特に有限生成$G(k[\![T_1, \dots, T_n]\!])$加群である.
+        これらと, 10.24より, $A$は有限生成$k[\![T_1, \dots, T_n]\!]$加群である.
+    \end{problem}
+
+    \begin{problem}
+
+    \end{problem}
+
+    \stepcounter{BaseCounter}
+
+    \begin{problem}
+        $\lambda$を加法関数とし, $\gamma(M)$で$(M)$の$K(A)$での像を表和すことにすれば,
+        7.26より, ある$\lambda_0: K(A) \to \mathbb{Z}$が存在して,
+        $\lambda(M) = \lambda_0(\gamma(M))$が成り立つので,
+        Poincare級数は
+        \[
+            P(M, t) = \sum_{n = 0}^\infty \lambda_0(\gamma(M_n))t^n
+         \]
+         と表せる.
+         これによって, (11.1)を書き換えればよい.
+    \end{problem}
+
+    \begin{problem}
+        $\mathfrak{p}$を$A$における素イデアル鎖において最大の素イデアルとすれば,
+        $\mathfrak{p} \subsetneq \mathfrak{p} + (x)$であって, $\mathfrak{p} + (x)$は素イデアルである.
+        実際, 包含関係は明らかで, $A[X] \to A \to A/\mathfrak{p}$を考えれば,
+        $\mathfrak{p} + (x)$は素イデアルなので, $1 + \dim{A} \leq \dim{A[X]}$が成り立つ.
+
+        次に, $A \to A[X]$を埋め込みとして, $\Spec{A[X]} \to Spec{A}$を考える.
+        $\mathfrak{p} \in \Spec{A}$に対して,
+        ${f^\ast}^{-1}(\mathfrak{p}) \cong \Spec{k(\mathfrak{p}) \otimes_A A[X]} = \Spec{k(\mathfrak{p})[X]}$
+        であって, $k(\mathfrak{p})[X]$はPIDなので,
+        $\dim k(\mathfrak{p})[X] = 1$となる.
+        したがって,
+        $\dim{A} \leq 2 \dim{A} + 1$が成り立つ.
+    \end{problem}
+
+    \begin{problem}
+        11.7より, $1 + \dim{A} \leq \dim{A[X]}$が成り立つので, 逆を示せばよい.
+        \color{red}
+            こんどやる
+        \color{black}
+    \end{problem}
+\end{document}
